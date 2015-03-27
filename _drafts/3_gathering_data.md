@@ -6,11 +6,6 @@ date:   2015-03-24 16:13:57
 
 To develop a touch model I need data. I couldn't find any public dataset with user typing data so I decided to create an app to collect data myself. The app and the dataset will be publicly available and could be used to improve or compare keyboard performance. [Timdream][timdream] has a nice project called [Online demo page for Mozilla Firefox OS Keyboard][timdreamdemo] which I used as a base for the app. The benefit of his online demo is that it runs on nearly any device.
 
-<p class="center" style="width:320px">
-	<iframe width="320" height="480" src="http://timdream.org/gaia-keyboard-demo/" frameborder="0" style="border: 1px solid #E8E8E8;">
-	</iframe>
-</p>
-
 The data collection app shows the user a sentence that he/she has to type. The sentences are part of the [Enron mobile dataset][enron]. I used the memorable sentences and removed numbers and characters that could not be found on the first 'page' of the default english qwerty layout. Users are not able to see their input, therefore I removed the backspace key as well. By doing so, we will end up with touch information of users that try to type a sentence without doing any corrections.
 
 <p class="center" style="width:320px">
