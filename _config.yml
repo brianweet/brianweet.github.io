@@ -9,4 +9,7 @@ url: "http://brianweet.github.io" # the base hostname & protocol for your site
 github_username:  brianweet
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
+
+kramdown:
+  input: GFM
