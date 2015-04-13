@@ -21,6 +21,10 @@ Error percentage is calculated by taking the Levenshtein distance to the correct
 | 7 	        |  15.70%		|12.18% | 10.96% | 10.96% | 	8.93% | 		29| 24-03 19:59
 | 8 	        |  10.04%		| 8.18% |  7.19% | 	6.69% | 	6.57% | 		33| 18-03 16:00
 
+<p style="max-width:600px; margin: 0px auto;">
+	<img src="/assets/results_bar.png" alt="app" style="border: 1px solid #E8E8E8;">	
+</p>
+
 Todo
  * Build touch model while the user is typing. Instead of using pre-annotated data
  * Use the touch model information during autocorrect (use probabilities for nearby keys)

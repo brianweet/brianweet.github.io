@@ -23,16 +23,17 @@ Because we know what the user is trying to type, it is possible to annotate touc
 
 ### Execute recorded touch events again
 
-So we have data, now what? We would like to be able to execute the users' typing efforts again, allowing us to change the underlying keyboard and compare data after we make changes to the keyboard algorithm. To re-execute the recorded touch data I forked the gaia keyboard demo project once more. We load the 'emulator project' in an iframe. The benefit of an iframe is that it is trivial to change the dimensions of the iframe, we want to do this based on the data we recorded about the users' device dimensions. 
-To emulate a sentence, an array of touch events is sent to the iframe by using [postMessage][iframepost]. Inside the iframe we create (fake) touch events and schedule them according to the recorded information. To test a different algorithm, we could simply load a different version of our keyboard in the iframe. After executing all touch events we get a result back from the iframe, we can use this result to compare word error rates between different correction algorithms. 
+So we have data, now what? We would like to be able to re-execute or emulate the users' typing efforts, allowing us to change the underlying keyboard and compare algorithm performance. To re-execute the recorded touch data I forked the gaia keyboard demo project once more. The 'emulator project' runs in an iframe. The benefit of an iframe is that it is trivial to change the dimensions of the iframe. We have to do because we want to keep the app as generic as possible, therefore we resize the iframe based on the data we recorded about the users' device dimensions. 
+To emulate a sentence, an array of touch events is sent to the iframe by using [postMessage][iframepost]. Inside the iframe we create (fake) touch events and schedule them according to the recorded information. To test a different algorithm, we could simply load a different version of our keyboard in the iframe. After executing all touch events we get a result back from the iframe, we can use this result to compare word error rates between different correction algorithms.   
+
 <p class="center" style="width:320px">
-<video width="320" height="478" autoplay controls loop>
-	  <source src="/assets/emulate_movie.webm" type="video/webm">
-	  <source src="/assets/emulate_movie.ogv" type="video/ogg">
-	  <source src="/assets/emulate_movie.mp4" type="video/mp4">
-	Your browser does not support the video tag.
-</video> 
-<span>Executing recorded data, user tries to type 'Where do you want to meet to walk over there'.</span>
+	<video width="320" height="478" autoplay controls loop>
+		  <source src="/assets/emulate_movie.webm" type="video/webm">
+		  <source src="/assets/emulate_movie.ogv" type="video/ogg">
+		  <source src="/assets/emulate_movie.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video> 
+	<span>Executing recorded data, user tries to type 'Where do you want to meet to walk over there'.</span>
 </p>
 
 [timdream]: https://github.com/timdream

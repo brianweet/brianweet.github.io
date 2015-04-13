@@ -4,7 +4,7 @@ title:  "Probable keyboard events"
 date:   2015-03-11 16:13:57
 ---
 
-For my master Computer Science at [Leiden University][liacs] and for [Telenor Digital][telenordigital] I am working on a research project to improve the accuracy of the touch screen keyboard on low end devices. I think it is awesome that there are [Firefox OS phones][dolphin] available for a price as low as 2000TK (~25$). So lets try to make the user experience as good as possible! The hardware in [these][keon] low end phones has some quirks that hinder accurate typing. We will try to mitigate for those errors and come up with a model that adapts itself to the user and the phone they use.
+For my master Computer Science at [Leiden University][liacs] and for [Telenor Digital][telenordigital] I am working on a research project to improve the accuracy of touch screen keyboards on low end devices. I think it is awesome that there are Firefox OS phones available for a price as low as 2000TK (~25$). So lets try to make the user experience as good as possible! The hardware in [these][dolphin] [low end][keon] [phones][zteopen] has some quirks that hinder accurate typing (Read [The real deal-breaker: typing][arstech]). We will try to mitigate for those errors and come up with a model that adapts itself to the user and the phone they use.
 
 All prototypes will be written in Javascript, as I intend to improve the performance of the Firefox OS keyboard. The ideas are generic though, so except for implementation details it should not be too hard to port these ideas to other platforms.
 
@@ -33,3 +33,5 @@ So what what is my definition of an accurate keyboard? I would call a keyboard a
 [autocorrect]: 		http://cdn.damnyouautocorrect.com/images/meditating.jpg
 [keon]: 			http://en.wikipedia.org/wiki/GeeksPhone_Keon
 [dolphin]:			https://developer.mozilla.org/en-US/Firefox_OS/Phone_guide/Symphony_GoFox_F15
+[zteopen]: 			http://en.wikipedia.org/wiki/ZTE_Open
+[arstech]:			http://arstechnica.com/gadgets/2014/10/testing-a-35-firefox-os-phone-how-bad-could-it-be/2/#myExperience3817590575001
