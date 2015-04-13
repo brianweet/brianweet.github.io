@@ -22,7 +22,7 @@ After reading a bunch of research papers I noticed that a lot of the models had 
 I decided to use the touch points to estimate the parameters of a bivariate Gaussian (normal) distribution. The idea started with a paper by [Antti Oulasvirta et al.][antti] where they used Gaussian distributions and calculate the distance to a key like this
 $$ P\left( K \;\middle\vert\; T \right) = \exp (- \frac{d_k^2}{\sigma_k^2}  ) $$
 With \\( d_{k} \\) as the Euclidean distance of a touch point to the center of key \\(k\\) and \\( \sigma_{k} \\) as the variance of the touch point distribution around the key center. \\( \sigma_{k} \\) is a parameter that they estimated from training data. So for every new touch point, they calculate the probability of that touch point belonging to any given key.
-I am going to something similar however I will also use the correlation between the x and y coordinates.
+I am going to implement something similar however I will also use the correlation between the x and y coordinates.
 
 #### Bivariate normal distributions
 A nice way to visualize bivariate normal distributions is to plot their isocontours (or elevation contours). The distributions have distinctive shapes based on their parameters. The pictures below shows the three different variations.
@@ -31,12 +31,12 @@ A nice way to visualize bivariate normal distributions is to plot their isoconto
 	<img src="/assets/gaussians_combined.png" alt="app" style="border: 1px solid #E8E8E8;">	
 </p>
 
- The first variation, \\( \mathbf X\sim \mathcal{N}(0,1), \mathbf Y\sim \mathcal{N}(0,1) \\) and \\(\rho = 0\\), has the same variance for both dimensions and no correlation. It ends up looking like a circle, this means that a sample with coordinates x=0, y=1 has the same distance to the distribution as a sample with coordinates x=1, y=0.  
+ The first and leftmost variation, \\( \mathbf X\sim \mathcal{N}(0,1), \mathbf Y\sim \mathcal{N}(0,1) \\) and \\(\rho = 0\\), has the same variance for both dimensions and no correlation. It ends up looking like a circle, this means that a sample with coordinates x=0, y=1 has the same distance to the distribution as a sample with coordinates x=1, y=0.  
  The second variation, \\( \mathbf X\sim \mathcal{N}(0,2), \mathbf Y\sim \mathcal{N}(0,1) \\) and \\(\rho = 0\\), is axis aligned but the variance is different for both dimensions, now it ends up looking like an ellipse. The two samples in the previous example have a different distance to the distribution as the variance of both dimensions is different.  
  The third and last version, \\( \mathbf X\sim \mathcal{N}(0,1), \mathbf Y\sim \mathcal{N}(0,1) \\) and \\(\rho = 0.75\\), is not axis aligned, which means the two dimensions are correlated, and the isocontours look like a rotated ellipse. 
 
 #### Explaining the dataset
-The dataset used in this example consists of annotated data collected from users typing on the gaia keyboard. The users had to type fixed sentences, therefore the intended touch targets are known. For every touch we have information about the x and y coordinates and the key they intended to hit. The figure below shows an example of recorded data for the key E, where green dots were 'on target' and red points missed the intended key. More on the dataset [here][?]
+The dataset used in this example consists of annotated data collected from users typing on the gaia keyboard. The users had to type fixed sentences, therefore the intended touch targets are known. For every touch we have information about the x and y coordinates and the key they intended to hit. The figure below shows an example of recorded data for the key E, where green dots were 'on target' and red points missed the intended key. More on the dataset [here]({% post_url 2015-04-07-gathering-data %})
 
 <p class="center" style="width:320px">
 	<img src="/assets/plot-e-key.png" alt="app" style="border: 1px solid #E8E8E8;">	
