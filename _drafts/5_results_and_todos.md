@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  "Results and //TODOs"
-date:   2015-03-24 16:13:57
+date:   2015-04-12 16:13:57
 ---
 
 Preliminary results
 A = autocorrect
-MT = multitouch fix
+MT = multi-touch fix
 TM = touch model
 Error percentage is calculated by taking the Levenshtein distance to the correct sentence
 
@@ -20,3 +20,10 @@ Error percentage is calculated by taking the Levenshtein distance to the correct
 | 6 	        |  18.90%		|17.96% | 12.97% | 17.18% |    11.86% |			55| 27-03 16:08 (24-03 16:15)
 | 7 	        |  15.70%		|12.18% | 10.96% | 10.96% | 	8.93% | 		29| 24-03 19:59
 | 8 	        |  10.04%		| 8.18% |  7.19% | 	6.69% | 	6.57% | 		33| 18-03 16:00
+
+Todo
+ * Build touch model while the user is typing. Instead of using pre-annotated data
+ * Use the touch model information during autocorrect (use probabilities for nearby keys)
+ * Improve autocorrect to detect separate words. Should be able to insert space
+ * Handle corrections even if user is typing a new word (fast type / slow device)
+ * Take context into account (n-gram model)

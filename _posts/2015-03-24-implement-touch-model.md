@@ -20,8 +20,8 @@ Research has shown that touch points on the keyboard are normally distributed.[?
 <!--- [?] -->
 After reading a bunch of research papers I noticed that a lot of the models had to be trained offline or required a certain amount of training data. The model I want to use should be able to be trained on the actual phone itself, preferably without any internet connection.
 I decided to use the touch points to estimate the parameters of a bivariate Gaussian (normal) distribution. The idea started with a paper by [Antti Oulasvirta et al.][antti] where they used Gaussian distributions and calculate the distance to a key like this
-$$ P\left( K \;\middle\vert\; T \right) = \exp (- \frac{d\_k^2}{\sigma\_k^2}  ) $$
-With \\( d\_{k} \\) as the Euclidean distance of a touch point to the center of key \\(k\\) and \\( \sigma\_{k} \\) as the variance of the touch point distribution around the key center. \\( \sigma\_{k} \\) is a parameter that they estimated from training data. So for every new touch point, they calculate the probability of that touch point belonging to any given key.
+$$ P\left( K \;\middle\vert\; T \right) = \exp (- \frac{d_k^2}{\sigma_k^2}  ) $$
+With \\( d_{k} \\) as the Euclidean distance of a touch point to the center of key \\(k\\) and \\( \sigma_{k} \\) as the variance of the touch point distribution around the key center. \\( \sigma_{k} \\) is a parameter that they estimated from training data. So for every new touch point, they calculate the probability of that touch point belonging to any given key.
 I am going to something similar however I will also use the correlation between the x and y coordinates.
 
 #### Bivariate normal distributions
@@ -66,7 +66,7 @@ Each sample point holds a value for the two dimensions **x** and **y**
 	{% endhighlight %}
 
 First we need the sample mean \\(\mu\\) (or \\(\bar{s}\\)) which is a vector containing the average for both dimensions
-$$ \mu = \frac{1}{N} \sum\_{i=1}^N s\_i $$
+$$ \mu = \frac{1}{N} \sum_{i=1}^N s_i $$
 
 	{% highlight javascript %}
 	function mean(samples){
@@ -89,7 +89,7 @@ $$ \mu = \frac{1}{N} \sum\_{i=1}^N s\_i $$
 	{% endhighlight %}
 
 To calculate the [inverse covariance matrix][inversematrix] \\(S^{-1}\\) we first need to build the covariance matrix \\(S\\). Lets start by calculating the variance. Variance is a measure that is used to determine how far points are spread out. 
-$$ \sigma^2 = \frac{1}{N-1} \sum\_{i=1}^N (x\_i - \mu) $$
+$$ \sigma^2 = \frac{1}{N-1} \sum_{i=1}^N (x_i - \mu) $$
 In this example we calculate the variance for both dimensions on one loop
 	{% highlight javascript %}
 	function variance(samples){
@@ -110,7 +110,7 @@ In this example we calculate the variance for both dimensions on one loop
 	{% endhighlight %}
 
 Now we are going to calculate the unbiased sample covariance  
-$$ \hat{S} = \frac{1}{N-1} \sum\_{i=1}^N (x\_i - \mu) (x\_i - \mu)' $$
+$$ \hat{S} = \frac{1}{N-1} \sum_{i=1}^N (x_i - \mu) (x_i - \mu)' $$
 
 	{% highlight javascript %}
 	function covariance(samples){
@@ -128,14 +128,14 @@ $$ \hat{S} = \frac{1}{N-1} \sum\_{i=1}^N (x\_i - \mu) (x\_i - \mu)' $$
 > We can calculate variance for both dimensions and the covariance in one go
 
 With the variance and the covariance calculated, we have the [covariance block matrix][blockmatrix]:
-$$ S\_{X,Y} = \begin{bmatrix}
-  S\_{XX} & S\_{XY}  \\\\
-  S\_{YX} & S\_{YY} 
+$$ S_{X,Y} = \begin{bmatrix}
+  S_{XX} & S_{XY}  \\\\
+  S_{YX} & S_{YY} 
  \end{bmatrix}$$
- \\(S\_{XX}\\) is the variance of the samples in the X dimension, \\(S\_{YY}\\) is the variance of samples in the Y dimension and \\(S(XY)\\) and \\(S(YX)\\) is the sample covariance we just calculated.
+ \\(S_{XX}\\) is the variance of the samples in the X dimension, \\(S_{YY}\\) is the variance of samples in the Y dimension and \\(S(XY)\\) and \\(S(YX)\\) is the sample covariance we just calculated.
 
 
-Just one more step is needed to be able to calculate the inverse matrix \\(S^-1\\), as we need the [determinant][determinant] of the covariance matrix \\(\left|S\right|\\). The determinant for a 2D matrix can be calculated by \\(\left|A\right| = a d - b c\\) with \\(A = \bigl(\begin{smallmatrix} a & b \\\ c & d\end{smallmatrix} \bigr)\\).
+Just one more step is needed to be able to calculate the inverse matrix \\(S^{-1}\\), as we need the [determinant][determinant] of the covariance matrix \\(\left\|S\right\|\\). The determinant for a 2D matrix can be calculated by \\(\left\|A\right\| = a d - b c\\) with \\(A = \bigl(\begin{smallmatrix} a & b \\\ c & d\end{smallmatrix} \bigr)\\).
 
 	{% highlight javascript %}
 	function getDeterminant(covarianceMatrix) {

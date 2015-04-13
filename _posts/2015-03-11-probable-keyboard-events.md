@@ -15,8 +15,8 @@ The model will try to improve typing accuracy for people who make recurring mist
 I will write about 4 parts of the research project, the topics are as follows
 
 * [Implementing a touch model]({% post_url 2015-03-24-implement-touch-model %})
-* Gathering data and how to re-execute user typing data
-* Touching your keyboard with two fingers, no way!
+* [Collecting touch data and re-executing touch events]({% post_url 2015-04-07-gathering-data %})
+* [Touching your keyboard with two fingers, no way!]({% post_url 2015-04-08-low-end-touchscreen-limitations %})
 * Results and //TODO's
 
 #### Accuracy and autocorrection
@@ -25,7 +25,7 @@ I will write about 4 parts of the research project, the topics are as follows
 	<img style="max-height:250px;" title="Damn you autocorrect" src="http://cdn.damnyouautocorrect.com/images/meditating.jpg" align="right" />
 </div>
 
-So what what is my definition of an accurate keyboard? I would call a keyboard accurate when it allows me to make errors and still give me the result I expected. To meet the expectation of the user, most keyboards use some kind of autocorrection algorithm that tries to correct typos and misspellings. The autocorrect algorithm tries to determine the users' intention by evaluating the input against a (word frequency) dictionary/language model (LM). Corrections occur only when the algorithm finds a candidate word that meets a certain probability treshold. This threshold is important because the candidate word might not be very likely to occur. Determining when to replace the input is a difficult problem, especially when the users' input does not exist in the vocabulary (out-of-vocabulary or OOV). 
+So what what is my definition of an accurate keyboard? I would call a keyboard accurate when it allows me to make errors and still give me the result I expected. To meet the expectation of the user, most keyboards use some kind of autocorrection algorithm that tries to correct typos and misspellings. The autocorrect algorithm tries to determine the users' intention by evaluating the input against a (word frequency) dictionary/language model (LM). Corrections occur only when the algorithm finds a candidate word that meets a certain probability threshold. This threshold is important because the candidate word might not be very likely to occur. Determining when to replace the input is a difficult problem, especially when the users' input does not exist in the vocabulary (out-of-vocabulary or OOV). 
 
 
 [liacs]:      		http://www.liacs.nl/
