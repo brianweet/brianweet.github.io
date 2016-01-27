@@ -1,8 +1,17 @@
 ---
 layout: post
-title:  "Collecting touch data and re-executing touch events"
+title:  "Part 3: Collecting touch data and re-executing touch events"
 date:   2015-04-07 16:13:57
+tags: [typing-accuracy, touch-model]
 ---
+
+This is the third in a series of blog posts about typing accuracy.
+
+* [Part 1: Probable keyboard events]({% post_url 2015-03-11-probable-keyboard-events %})
+* [Part 2: Implementing a touch model from scratch]({% post_url 2015-03-24-implement-touch-model %})
+* Part 3: Collecting touch data and re-executing touch events
+* [Part 4: Low end touchscreen limitations (Touching your keyboard with two fingers, no way!)]({% post_url 2015-04-08-low-end-touchscreen-limitations %})
+* [Part 5: Test method, Results and //TODO's]({% post_url 2015-05-16-results-and-todos %})
 
 I couldn't find any public dataset with user typing data so I decided to create an app to collect data. The app and the dataset will be publicly available and can be used to improve or compare keyboard performance. [Timdream][timdream] has a nice project called [Online demo page for Mozilla Firefox OS Keyboard][timdreamdemo] which I used as a base for the app. The benefit of his online demo is that it runs on nearly any device.
 

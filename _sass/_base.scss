@@ -1,3 +1,7 @@
+/*
+ * Font Awesome v4.0.3 | by @davegandy | Font: SIL OFL 1.1, CSS: MIT License | http://fontawesome.io
+ */
+
 /**
  * Reset some basic elements
  */
@@ -207,7 +211,12 @@ pre {
  * Tables
  */
 table {
-  padding: 0; }
+  display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+    border-collapse: collapse; }
   table tr {
     border-top: 1px solid #cccccc;
     background-color: white;
@@ -226,7 +235,34 @@ table {
       text-align: left;
       margin: 0;
       }
+    table th,table td {
+      padding: 6px 13px;
+      border: 1px solid #ddd;
+      }
     table tr th :first-child, table tr td :first-child {
       margin-top: 0; }
     table tr th :last-child, table tr td :last-child {
       margin-bottom: 0; }
+
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot?v=4.5.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.fa-tag:before {
+  content: "\f02b";
+}
+.fa-tags:before {
+  content: "\f02c";
+}

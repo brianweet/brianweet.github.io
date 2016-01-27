@@ -1,0 +1,12 @@
+typing-accuracy:
+  name: Typing accuracy
+touch-model:
+  name: Touch model
+webhooks:
+  name: WebHooks
+stripe:
+  name: Stripe
+strong-name-sign:
+  name: Strong name signing
+newrelic:
+  name: NewRelic

@@ -1,9 +1,16 @@
 ---
 layout: post
-title:  "Low end touchscreen limitations"
+title:  "Part 4: Low end touchscreen limitations (Touching your keyboard with two fingers, no way!)"
 date:   2015-04-08 16:13:57
-categories: keyboards
+tags: [typing-accuracy, touch-model]
 ---
+This is the fourth in a series of blog posts about typing accuracy.
+
+* [Part 1: Probable keyboard events]({% post_url 2015-03-11-probable-keyboard-events %})
+* [Part 2: Implementing a touch model from scratch]({% post_url 2015-03-24-implement-touch-model %})
+* [Part 3: Collecting touch data and re-executing touch events]({% post_url 2015-04-07-gathering-data %})
+* Part 4: Low end touchscreen limitations (Touching your keyboard with two fingers, no way!)
+* [Part 5: Test method, Results and //TODO's]({% post_url 2015-05-16-results-and-todos %})
 
 I like to type fast. I like to type with two thumbs. When you type fast with two thumbs on a Keon or GoFox F15 phone you might notice it does not always register the keys you tried to touch. You might even end up with ***'random'*** characters you thought you did **not** touch. While both phones do have a multi-touch touchscreen, the multi-touch capabilities are somewhat limited.
 

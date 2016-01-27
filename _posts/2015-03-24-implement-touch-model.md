@@ -1,8 +1,17 @@
 ---
 layout: post
-title:  "Implementing a touch model from scratch"
+title:  "Part 2: Implementing a touch model from scratch"
 date:   2015-03-24 16:13:57
+tags: [typing-accuracy, touch-model]
 ---
+
+This is the second in a series of blog posts about typing accuracy.
+
+* [Part 1: Probable keyboard events]({% post_url 2015-03-11-probable-keyboard-events %})
+* Part 2: Implementing a touch model from scratch
+* [Part 3: Collecting touch data and re-executing touch events]({% post_url 2015-04-07-gathering-data %})
+* [Part 4: Low end touchscreen limitations (Touching your keyboard with two fingers, no way!)]({% post_url 2015-04-08-low-end-touchscreen-limitations %})
+* [Part 5: Test method, Results and //TODO's]({% post_url 2015-05-16-results-and-todos %})
 
 #### Touch (offset) model
 <!--- [?] -->

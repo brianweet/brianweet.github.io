@@ -183,6 +183,10 @@
     color: $grey-color;
 }
 
+.post-meta.tags {
+    font-style: italic
+}
+
 .post-link {
     display: block;
     font-size: 24px;
@@ -203,7 +207,7 @@
     line-height: 1;
 
     @include media-query($on-laptop) {
-        font-size: 36px;
+        font-size: 30px;
     }
 }
 
@@ -238,4 +242,8 @@
 .center {
     width: 50%;
     margin: 0 auto;
+}
+
+.centered-image{
+    max-width:600px; margin: 0px auto;margin-bottom: 10px;
 }
