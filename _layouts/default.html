@@ -14,7 +14,32 @@
     </div>
 
     {% include footer.html %}
-
+    <script type="text/javascript">
+    Zepto(function($){
+      $('img').magnificPopup({
+        type: 'image',
+        callbacks: {
+          elementParse: function(item) { 
+            item.src = item.el.attr('src');
+          }
+        },
+        closeOnContentClick: true,
+        closeBtnInside: false,
+        fixedContentPos: true,
+        mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+        image: {
+          verticalFit: true,
+          titleSrc: function(item) {
+            return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.src+'" target="_blank">open original</a>';
+          }
+        },
+        zoom: {
+          enabled: true,
+          duration: 300 // don't foget to change the duration also in CSS
+        }
+      });
+    });
+    </script>
   </body>
 
 </html>

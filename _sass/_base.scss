@@ -25,9 +25,12 @@ body {
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
+    word-wrap: break-word;
 }
 
-
+figure.highlight pre {
+  word-wrap: initial;
+}
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm

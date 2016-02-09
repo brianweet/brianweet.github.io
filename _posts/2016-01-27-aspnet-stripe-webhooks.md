@@ -76,7 +76,8 @@ public class StripeWebHookHandler : WebHookHandler
 }
 {% endhighlight %}
 
-we now have a custom handler for events sent to our stripe receiver URI: **http(s)://&lt;yourhost&gt;/api/webhooks/incoming/stripe/**
+we now have a custom handler for events sent to our stripe receiver URI: 
+<code>http(s)://&lt;yourhost&gt;/api/webhooks/incoming/stripe/</code>
 In case of a new WebHook request, the WebHookReceiversController will try to find a receiver registered with the name "stripe". In our case it will find the StripeWebHookReceiver which handles the incoming request and verifies the incoming data for us. Verification is done by retrieving the actual event through the Stripe API, using the 'id' field from the incoming WebHook request. The verification is necessary because anyone could send anything to our WebHook, by retrieving the data from Stripe you know that the data actually exists in your account. You can make use of the [Stripe IP Addresses](https://stripe.com/docs/ips) but still you'd like to check if you're able to access the received event with your current API Key.
 
 Registering the Stripe API Secret Key with our own application is easy. Just save your key in the Web.Config like so (or use azure app settings):
