@@ -3,6 +3,7 @@ layout: post
 title:  "Implementing Stripe Webhooks using ASP.NET WebHooks Preview"
 date:   2016-01-27 01:10:57
 tags: [webhooks, stripe]
+comments: true
 ---
 
 In this post I will show you how to use ASP.NET WebHooks Preview to integrate with Stripe WebHooks. We will use the ASP.NET Stripe WebHooks Receiver beta6 for this. 
