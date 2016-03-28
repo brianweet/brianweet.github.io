@@ -3,6 +3,7 @@ layout: post
 title:  "Part 1: Probable keyboard events"
 date:   2015-03-11 16:13:57
 tags: [typing-accuracy, touch-model]
+comments: true
 ---
 
 This is the first in a series of blog posts about typing accuracy.

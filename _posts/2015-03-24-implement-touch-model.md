@@ -3,6 +3,7 @@ layout: post
 title:  "Part 2: Implementing a touch model from scratch"
 date:   2015-03-24 16:13:57
 tags: [typing-accuracy, touch-model]
+comments: true
 ---
 
 This is the second in a series of blog posts about typing accuracy.

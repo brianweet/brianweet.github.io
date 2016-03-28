@@ -3,6 +3,7 @@ layout: post
 title:  "Part 5: Test method, Results and //TODO's"
 date:   2015-05-16 16:13:57
 tags: [typing-accuracy, touch-model]
+comments: true
 ---
 This is the second in a series of blog posts about typing accuracy.
 

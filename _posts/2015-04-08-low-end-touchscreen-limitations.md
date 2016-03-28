@@ -3,7 +3,9 @@ layout: post
 title:  "Part 4: Low end touchscreen limitations (Touching your keyboard with two fingers, no way!)"
 date:   2015-04-08 16:13:57
 tags: [typing-accuracy, touch-model]
+comments: true
 ---
+
 This is the fourth in a series of blog posts about typing accuracy.
 
 * [Part 1: Probable keyboard events]({% post_url 2015-03-11-probable-keyboard-events %})

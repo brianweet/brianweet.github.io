@@ -3,6 +3,7 @@ layout: post
 title:  "Part 3: Collecting touch data and re-executing touch events"
 date:   2015-04-07 16:13:57
 tags: [typing-accuracy, touch-model]
+comments: true
 ---
 
 This is the third in a series of blog posts about typing accuracy.
