@@ -272,3 +272,64 @@ table {
 .fa-comments:before {
   content: "\f086";
 }
+.hidden {
+  display: none;
+}
+.error{
+  color: #FF4500;
+  font-weight: bold;
+}
+.correct{
+  color: #3CB371;
+  font-weight: bold;
+}
+a.list-group-item:hover {
+    color: #555;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+a.list-group-item {
+    color: #555;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.list-group {
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+
+.home, .post, .tag-overview {
+  background-color: $content-color;
+  padding: 1.5em;
+  -webkit-box-shadow: 0px 0px 15px 1px rgba(33,33,33,0.50);
+  -moz-box-shadow: 0px 0px 15px 1px rgba(33,33,33,0.50);
+  box-shadow: 0px 0px 15px 1px rgba(33,33,33,0.50);
+}
+
+.galery a {
+  display: none;
+}
+
+.galery a.first {
+  display: initial;
+}
+
+@include media-query($on-palm) {
+  .home, .post, .tag-overview {
+    background-color: $content-color;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  body {
+    background-color: $content-color;
+  }
+}

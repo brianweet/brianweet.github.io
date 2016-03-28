@@ -10,3 +10,15 @@ strong-name-sign:
   name: Strong name signing
 newrelic:
   name: NewRelic
+ssl:
+  name: SSL
+lets-encrypt:
+  name: LetsEncrypt
+releasemanagement:
+  name: Release Management
+tfs:
+  name: TFS
+webL10n:
+  name: webL10n
+localization:
+  name: localization

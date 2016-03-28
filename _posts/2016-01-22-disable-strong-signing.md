@@ -3,7 +3,7 @@ layout: post
 title:  "Debugging Microsoft assemblies? Disable strong signing first"
 date:   2016-01-22 23:07:40
 tags: [strong-name-sign]
-comments: false
+comments: true
 ---
 
 #### Woohoo, lets debug open source projects with strong signed assemblies

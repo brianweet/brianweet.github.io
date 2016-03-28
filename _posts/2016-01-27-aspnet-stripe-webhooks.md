@@ -18,7 +18,7 @@ Some useful links:
 #### Creating a receiver
 Lets create a new Web API project:
 <p class="centered-image">
-	<img src="/assets/stripe-webhooks/new-project.png" alt="Strong sign error" style="border: 1px solid #E8E8E8;">	
+	<img src="/assets/stripe-webhooks/new-project.png" alt="Strong sign error">	
 </p>
 
 First we initialize the WebHookConfig by adding <code>config.InitializeReceiveStripeWebHooks();</code> to WebApiConfig.Register:
@@ -93,7 +93,7 @@ Registering the Stripe API Secret Key with our own application is easy. Just sav
 {% endhighlight %}
 You can find your own Secret API key on the [Stripe API Keys page](https://dashboard.stripe.com/account/apikeys). I am using the Test Key right now, which offers the same functionality as the Live Key exept for making actual bank transactions obviously.
 <p class="centered-image">
-	<img src="/assets/stripe-webhooks/api-key.png" alt="API Key" style="border: 1px solid #E8E8E8;">
+	<img src="/assets/stripe-webhooks/api-key.png" alt="API Key">
 </p>
 Copy the key to your web.config and deploy your application somewhere. Any arbitrary location that can be accessed by the Stripe servers should be fine, both http and https are supported at the moment. 
 There are [ways](http://www.ultrahook.com/) to run webhooks on a dev environment but I haven't tried it yet).
@@ -101,7 +101,7 @@ There are [ways](http://www.ultrahook.com/) to run webhooks on a dev environment
 
 And last but not least, register your webhook URI on the [WebHooks page](https://dashboard.stripe.com/account/webhooks).
 <p class="centered-image">
-	<img src="/assets/stripe-webhooks/webhook-uris.png" alt="WebHook uri" style="border: 1px solid #E8E8E8;">
+	<img src="/assets/stripe-webhooks/webhook-uris.png" alt="WebHook uri">
 </p>
 
 
