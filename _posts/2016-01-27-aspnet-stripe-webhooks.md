@@ -111,3 +111,6 @@ There are two ways to test our WebHooks implementation. There are quite a lot of
 In order to test our WebHook and the various events, we only have one option at the moment. That option is to create create actual instances of the objects that trigger events in test mode. Invoices and payments created in test mode or with the test API key will not trigger any actual payment. However in order to test for example ending trial periods, you have to create a subscription with a trial period for a user in order to trigger the event.
 
 The Stripe Webhooks page has an option to send test webhooks. The WebHooks library however handler these events without calling our own StripeWebHookHandler though. I am currently working on a pull request which enables us to handle these test events ourselves.
+
+--edit--
+[Pull request](https://github.com/aspnet/WebHooks/pull/40) has landed, there's now a [sample project](https://github.com/aspnet/WebHooks/tree/master/samples/StripeReceiver) and you can set MS_WebHookStripeInTestMode to true if you want to receive test requests from Stripe.
