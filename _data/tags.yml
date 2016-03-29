@@ -22,3 +22,5 @@ webL10n:
   name: webL10n
 localization:
   name: localization
+workfront:
+  name: Workfront
