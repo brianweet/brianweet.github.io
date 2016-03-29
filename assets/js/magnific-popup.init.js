@@ -1,6 +1,6 @@
  Zepto(function($){
       var groups = {};
-      $('.galleryItem').each(function() {
+      $('.gallery a').each(function() {
         var id = parseInt($(this).attr('data-group'), 10);
         if(!groups[id]) {
           groups[id] = [];
