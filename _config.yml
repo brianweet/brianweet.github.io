@@ -3,9 +3,9 @@ title: brianweet
 email: brianweeteling@gmail.com
 description: >
   Hi, my name is Brian Weeteling. 
-  I am a web developer, currently studying CS at Leiden University. Dabbling with .NET, TypeScript, SPA's.
+  I am a passionate web developer, mainly working with .NET, TypeScript and SPA's. Also an IoT enthusiast.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://brianweet.github.io" # the base hostname & protocol for your site
+url: "https://brianweet.github.io" # the base hostname & protocol for your site
 github_username:  brianweet
 
 # Build settings
