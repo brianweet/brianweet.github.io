@@ -24,3 +24,5 @@ localization:
   name: localization
 workfront:
   name: Workfront
+episerver:
+  name: Episerver
