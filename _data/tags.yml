@@ -26,3 +26,5 @@ workfront:
   name: Workfront
 episerver:
   name: Episerver
+propertylist:
+  name: PropertyList
