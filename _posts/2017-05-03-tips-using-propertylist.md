@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tips making changes to Episerver PropertyList"
+title:  "Tips for making changes to Episerver PropertyList"
 date:   2017-03-05 12:00:00
 tags: [episerver, propertylist]
 comments: true
