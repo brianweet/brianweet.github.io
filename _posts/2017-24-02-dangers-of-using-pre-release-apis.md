@@ -5,7 +5,6 @@ date:   2017-02-24 12:00:00
 tags: [episerver, propertylist]
 comments: true
 ---
-
 In this blog post I will take a look at some of the do's and don'ts of using PropertyList<T>. PropertyList<T> has been around for a while and some
 <a href="http://world.episerver.com/blogs/per-magne-skuseth/dates/2015/11/trying-out-propertylistt/">nice</a>
 <a href="https://gregwiechec.com/2016/07/trying-out-propertyvaluelist/">blogposts</a> have been written about the subject. If you create a new PropertyDefinition based on PropertyList you might notice that PropertyList is still a pre-release API (Assembly: EPiServer, Version=10.4.2.0): 
@@ -13,6 +12,8 @@ In this blog post I will take a look at some of the do's and don'ts of using Pro
 
 But we didn't seem to have too much problems with PropertyList<T>, so what could be the reason for it to be a pre-release API still?
 To demonstrate the dangers of using a pre-release API I've used the example code from the first blogpost mentioned above.
+
+
 
 #### Adding PropertyList<T> property to a page 
 First we have the PropertyDefinitionType and the PropertyListBase (notice the Typo):
@@ -130,6 +131,7 @@ In general it is advised to not use pre-release APIs at all. However if you're w
 I've seen this error before but didn't give it much notice, I always have a working database backup ready during development which increases the risk of having a mistake like this occuring on test.
  
 #### How to change the namespace or rename TypoListProperty?
-In my next blogpost I'll show you how to move data in case you want to rename or refactor your ListProperty. I'll also take a look at implementing PropertyList in a different, more safe, way.
+In my next blogpost I'll show you how to move data in case you want to rename or refactor your ListProperty. I'll also take a look at implementing PropertyList in a different, safer, way.
 
-
+> #### tl;dr?
+> Trying to change the (underlying) data of a PropertyList could prevent episerver from starting. See the [next]({% post_url 2017-05-03-tips-using-propertylist %}) post for solutions
