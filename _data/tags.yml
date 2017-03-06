@@ -28,3 +28,5 @@ episerver:
   name: Episerver
 propertylist:
   name: PropertyList
+debugging:
+  name: Debugging

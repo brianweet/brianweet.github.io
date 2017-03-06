@@ -27,13 +27,14 @@ So the steps we have to take are:
 <p class="centered-image gallery">
 	<a href="/assets/propertylist2/1.1.before-migration.png" data-group="1" class="first">
 		<img src="/assets/propertylist2/1.1.before-migration.png" class="galleryItemThumb" />
+		<i class="fa fa-search"></i>
+		<strong>Click to see all images</strong>
 	</a>
 	<a href="/assets/propertylist2/1.2.admin-mode-old-backing-type.png" data-group="1"></a>
 	<a href="/assets/propertylist2/2.1.during-migration.png" data-group="1"></a>
 	<a href="/assets/propertylist2/2.2.admin-mode-new-backing-type.png" data-group="1"></a>
     <a href="/assets/propertylist2/3.after-migration.png" data-group="1"></a>
 </p>
-<strong>Click to see all images</strong>
 
 #### Migrating data on breaking changes to the data class
 Making changes to the underlying data class can break your site as well. In the error log you'll find errors related to Json (de)serialization. If you find yourself in this position you can follow steps similar to the ones above:

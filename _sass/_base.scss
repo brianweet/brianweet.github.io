@@ -105,7 +105,7 @@ a {
 
     &:hover {
         color: $text-color;
-        text-decoration: underline;
+        font-weight: 600;
     }
 }
 
@@ -272,6 +272,15 @@ table {
 .fa-comments:before {
   content: "\f086";
 }
+.fa-search:before {
+  content: "\f002";
+}
+.fa-smile-o:before {
+    content: "\f118";
+}
+.fa-birthday-cake:before {
+    content: "\f1fd";
+}
 .hidden {
   display: none;
 }
@@ -332,4 +341,18 @@ a.list-group-item {
   body {
     background-color: $content-color;
   }
+}
+
+.toggle {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: visibility 1s, opacity 0.5s linear;
+    -moz-transition: visibility 1s, opacity 0.5s linear;
+    -ms-transition: visibility 1s, opacity 0.5s linear;
+    transition: visibility 1s, opacity 0.5s linear;
+    &.hide{
+        visibility: hidden;
+        opacity: 0;
+         height: 0;
+    }
 }
