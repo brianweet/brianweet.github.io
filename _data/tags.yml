@@ -30,3 +30,5 @@ propertylist:
   name: PropertyList
 debugging:
   name: Debugging
+cms:
+  name: CMS

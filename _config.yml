@@ -7,6 +7,7 @@ description: >
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://brianweet.github.io" # the base hostname & protocol for your site
 github_username:  brianweet
+future: false
 
 # Build settings
 markdown: kramdown
