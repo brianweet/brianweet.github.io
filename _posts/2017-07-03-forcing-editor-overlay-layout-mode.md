@@ -86,7 +86,7 @@ And all there's left is to add a UIHint to your ContentArea property:
 ```
 
 #### But?
-Sure the drag and drop direction isn't dynamically determined anymore. But at least this workaround
+Sure, the drag and drop direction isn't dynamically determined anymore, but at least this workaround
 puts us in control in case we want to!
 
 
