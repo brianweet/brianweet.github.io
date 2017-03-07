@@ -16,7 +16,7 @@ pretty easily, as shown in the following gif.
 
 What you'll probably notice in this gif is the drag and drop direction inside the ContentArea. 
 On a big viewport you can drag ContentAreaItems **horizontally** whereas on a smaller viewport you can drag ContentAreaItems **vertically**. To determine the drag and drop direction 
-episerver created implemented some advanced(?) checks, which takes styling of all ContentAreaItems into account.
+episerver implemented some advanced(?) checks, which takes styling of all ContentAreaItems into account.
 ``` js
 //This can be found in ContentArea.js (debug clientResources)
 _setupDirectionality: function () {
