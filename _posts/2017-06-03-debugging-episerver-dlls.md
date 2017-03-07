@@ -75,5 +75,5 @@ here</a>
 * [More](http://hmemcpy.com/2014/07/how-to-debug-anything-with-visual-studio-and-jetbrains-dotpeek-v1-2/) [info](http://stackoverflow.com/questions/26518013/dotpeek-issue-debugging-3rd-party-dll#answer-26523669)
 
 <script>
-    $("[data-toggle-button]").on("click",function(e){e.preventDefault();$(".toggle").toggleClass("hide");if(window.appInsights)window.appInsights.trackEvent("toggle");});
+    $("[data-toggle-button]").on("click",function(e){e.preventDefault();$(".toggle").toggleClass("hide");if(window.appInsights){window.appInsights.trackEvent("toggle");window.appInsights.flush();});
 </script>
