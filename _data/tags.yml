@@ -32,3 +32,5 @@ debugging:
   name: Debugging
 cms:
   name: CMS
+epifind:
+  name: Episerver find  
