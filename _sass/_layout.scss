@@ -23,6 +23,43 @@
         color: $grey-color-dark;
     }
 }
+.measurements {
+    visibility: hidden;
+    opacity: 0;
+    float: right;
+    -webkit-transition: visibility 1s, opacity 0.5s linear;
+    -moz-transition: visibility 1s, opacity 0.5s linear;
+    -ms-transition: visibility 1s, opacity 0.5s linear;
+    transition: visibility 1s, opacity 0.5s linear;
+
+
+    &--visible {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    
+
+    span {
+        float: left;
+        font-size: 14px;
+        
+        &.title {
+            color: $grey-color;
+            margin-right: 10px;
+        }
+
+        &.temperature {
+            padding: 0 2px 0 2px;
+        }
+
+        &.timestamp {
+            color: $grey-color;
+            clear: both;
+        }
+
+    }
+}
 
 .site-nav {
     float: right;
