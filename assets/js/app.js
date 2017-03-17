@@ -26,7 +26,7 @@
     }
 
      function getMeasurement() {
-         $.getJSON("http://iotroom.azurewebsites.net/api/measurements", function(measurement){
+         $.getJSON("https://iotroom.azurewebsites.net/api/measurements", function(measurement){
             var $measurements = $("[data-measurements]");
             var $temperature = $measurements.find("[data-temperature]");
             var $timestamp = $measurements.find("[data-timestamp]");
