@@ -1,4 +1,4 @@
- Zepto(function($) {
+Zepto(function($) {
      $("[data-toggle-button]").on("click", function(e) {
          e.preventDefault();
          $(".toggle").toggleClass("hide");
