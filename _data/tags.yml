@@ -34,3 +34,5 @@ cms:
   name: CMS
 epifind:
   name: Episerver find  
+web-development:
+  name: Web development
