@@ -24,28 +24,4 @@ Zepto(function($) {
         g = percent<50 ? 255 : Math.floor(255-(percent*2-100)*255/100);
         return 'rgba('+r+','+g+',0, 0.5)';
     }
-
-     function getMeasurement() {
-         $.getJSON("https://iotroom.azurewebsites.net/api/measurements", function(measurement){
-            var $measurements = $("[data-measurements]");
-            var $temperature = $measurements.find("[data-temperature]");
-            var $timestamp = $measurements.find("[data-timestamp]");
-            
-            $measurements.addClass("measurements--visible");
-            $temperature.text(measurement.temperature);
-
-            $temperature[0].style.backgroundColor = getColor(measurement.temperature);
-            $timestamp.text(new Date(measurement.time).toLocaleString());
-         });
-     }
-
-     getMeasurement();
-     setInterval(function(){
-         var $measurements = $("[data-measurements]");
-         $measurements.removeClass("measurements--visible");
-
-         setTimeout(function() {
-            getMeasurement();    
-         }, 200);
-     }, 2 * 60 * 1000);
  });
