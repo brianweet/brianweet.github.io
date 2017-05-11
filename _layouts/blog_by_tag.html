@@ -6,7 +6,7 @@ layout: default
 	<div class="list-group">
 	    {% if site.tags[page.tag] %}
 	        {% for post in site.tags[page.tag] %}
-	        <a href="{{ post.url }}/" class="list-group-item">{{ post.title }}</a>
+	        <a href="{{ post.url }}" class="list-group-item">{{ post.title }}</a>
 	        {% endfor %}
 	    {% else %}
 	        <p>There are no posts for this tag.</p>
