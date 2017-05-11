@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Ngrok: building integrations with ease. A public endpoint for local development"
-date:   2017-05-10 12:00:00
+date:   2017-05-10 12:05:00
 tags: [web-development, episerver]
 comments: false
 ---
