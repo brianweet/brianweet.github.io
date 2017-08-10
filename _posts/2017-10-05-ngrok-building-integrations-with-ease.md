@@ -3,7 +3,7 @@ layout: post
 title:  "Ngrok: building integrations with ease. A public endpoint for local development"
 date:   2017-05-10 12:05:00
 tags: [web-development, episerver]
-comments: false
+comments: true
 ---
 
 Occasionaly I run into problems that hinder productivity way more than they should. If I think about what the actual problem is, I get a feeling that best be described as " &@%#* this should not be so hard". Lately I've been working on an integration between Episerver and a payment provider, Klarna. After reading through the docs and coding away happily for a while, I ran into one of the aforementioned problems. 
