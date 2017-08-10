@@ -36,3 +36,5 @@ epifind:
   name: Episerver find  
 web-development:
   name: Web development
+geolocation:
+  name: Geolocation
