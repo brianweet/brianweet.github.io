@@ -1,0 +1,9 @@
+version: '3.1'
+services:
+  site:
+    command: jekyll s --drafts --future
+    image: jekyll/jekyll:pages
+    volumes:
+      - .:/srv/jekyll
+    ports:
+      - 4000:4000
