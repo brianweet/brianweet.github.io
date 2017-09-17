@@ -38,3 +38,7 @@ web-development:
   name: Web development
 geolocation:
   name: Geolocation
+docker:
+  name: Docker
+jekyll:
+  name: Jekyll
