@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Trying out Docker: Alloy with Docker"
-date:   2017-09-17 12:00:00
+title:  "Trying out Docker: Alloy demo kit"
+date:   2017-09-19 12:00:00
 tags: [docker, jekyll]
 comments: true
 ---
@@ -12,13 +12,11 @@ In this blog I'll be taking another look at [Docker](https://www.docker.com/). T
 	<img src="/assets/docker-blog-1/docker-logo.png" alt="Cute Docker logo">	
 </p>
 
-### Running the Alloy site in a container
-The first step is to make sure you have [VS tools for Docker](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.VisualStudioToolsforDocker-Preview), this will give you the optino to add Docker support to your project. So I opened up the AlloyDemoKit solution and clicked on the menu item to add docker to my project. This will do a couple of things for you, for example create a Docker .dcproj, create a docker compose file and a Dockerfile for your project. So what is it and what do you need it for?
-The .dcproj will allow you to just press F5 in order to build and start debugging. This will build the image(s), start the container(s) set up debug tools and open op the browser with the correct url. 
+### Running the alloy in a container
+I've installed [VS tools for Docker](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.VisualStudioToolsforDocker-Preview) as this gives me an easy way of adding Docker support to an existing project. Adding Docker support will do a couple of things for you, for example create a Docker .dcproj, create a docker compose file and add a Dockerfile for our project. So what are the other files what do we need it for?
+The .dcproj is the Docker project file. It contains the docker-compose file(s) which hook everything up together. It also will allow us to press F5 in order to build and start debugging. This will build the image(s), start the container(s) set up debug tools and open op the browser with the correct url. All of this can also be done from the command line, and you see what is happening in your output window, so no magic here. As we have to use Windows containers, it will take quite a while to build the project for the first time, as the windows images are very big. This has to happen only once (or when you explicitely want to update the windows image) so be patient.
 
-Unfortunately the site didn't seem to work
-
-
+After adding Docker support it seems that we can build an image called ``alloydemokit`` for our web project:
 ```
 1>Building alloydemokit
 1>Step 1/5 : FROM microsoft/aspnet:4.6.2
@@ -44,13 +42,55 @@ Unfortunately the site didn't seem to work
 1>Successfully tagged alloydemokit:dev
 ```
 
+As said before I want to run the database in a container as well and fortunately Microsoft provides images for that. Below you can see the docker-compose file I ended up with, with comments to describe what every line is doing.
 
-### Summary
-This my first experiment with Docker and I tried to focus on the concepts of Docker while fixing a real problem I had. A real benifit of Docker is that it provides a consistent environment no matter where you run it. Setting up the environment can be done by creating simple files you can easily share and make sure you can re-execute the same steps. On development environments it's quite awesome as well, if you need certain tooling just make sure it's available in a docker image and share that image, instead of having to install all sort of tools locally. Use Docker on a build server and you're sure it builds if it builds locally. Everything you do can be simply saved and shared across machines.
+```yml
+version: '3'
+services:
+  alloydemokit: # Service for our web project
+    image: alloydemokit # Image name
+    build: # Info needed to build the image
+      context: .\AlloyDemoKit
+      dockerfile: Dockerfile
+    networks: # We'll be using a network I've defined below called alloy-network
+      - alloy-network # This allows communication between containers based on the service name
+    depends_on: # the db is required
+      - alloydemokit-db
+  alloydemokit-db:
+    image: microsoft/mssql-server-windows-developer # Empty sql server instance
+    ports:
+      - "1433:1433"
+    environment: 
+      - ACCEPT_EULA=Y
+      - sa_password=All0yDemokit! # This sets the sa account password
+      - attach_dbs="[{'dbName':'alloydemokit','dbFiles':['C:\\data\\alloydemokit.mdf','C:\\data\\alloydemokit_log.ldf']}]"
+      # Attach dbs will attach the database files once the server has started
+    volumes: # This will map the App_Data folder on my PC to c:/data in the container (R/W)
+      - ./AlloyDemoKit/App_Data:C:/data/
+    networks:
+      - alloy-network
+networks: # Used to redirect traffic and make communication between containers possible
+  alloy-network:
+    external:
+      name: nat
+```
+Now all I had to do was [change the connection string](https://github.com/brianweet/AlloyDemoKit/commit/265dd3d18cf958abdf27c2760ca3b3e72ff6bb05#diff-0d9151933f32e2929ddc7906ed378fbdR553) to reflect the docker db instance and add the .net compilers/compilerplatform nuget packages and alloy was up and running in two Docker containers, using the latest SQL server which is not installed on my local machine!
+
+#### Adding websocket support
+After logging in I noticed an error about real-time updates, which you can see below. I've seen this error before and I know it has something to do with websockets, so probably the default image does not have websocket support. What to do?!
 
 <p class="centered-image">
-	<img src="/assets/docker-blog-1/works-on-my-machine.png" alt="For real!">	
+	<img src="/assets/docker-blog-2/websocket-error.png" alt="Websocket error">
 </p>
+
+It's actually quite easy to add extra layers to existing images, which I figured out in my [previous blog post]({% post_url 2017-17-09-trying-out-docker-build-jekyll-blog %}) about Docker. After a quick search on Google I found out that you can add windows features in powershell using this cmdlet ``Add-WindowsFeature Web-WebSockets`` and indeed, after adding a ``RUN`` command to the [Dockerfile](https://github.com/brianweet/AlloyDemoKit/commit/dd71127447c78caad5edc1ed1addc945c66c3a37) the project rebuilt successfully and the error was fixed!
+
+#### Pre-built images for demo environments and testing
+The next thing I wanted to try was creating 'self-sufficient' images which will allow me to spin up a complete environment for demo or testing purposes. This way you will always have a known state to start with, sounds great right!
+
+
+### Summary
+
 
 > #### tl;dr
 * Docker provides a way to have consistent environments with consistent behaviour
