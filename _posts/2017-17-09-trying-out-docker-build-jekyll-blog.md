@@ -6,6 +6,11 @@ tags: [docker, jekyll]
 comments: true
 ---
 
+> #### tl;dr
+> * I want to build and run my Jekyll blog using Docker
+> * Docker provides a way to have consistent environments with consistent behaviour
+> * Docker hub has a lot of docker images with all sorts of OSses/languages/tools
+
 In this blog I'll be taking a look at [Docker](https://www.docker.com/) which I will use to build my blog site. The aim is to play around with Docker a bit and understand what it is able to offer. The reason to use Docker for this example is that I don't want to install all required tooling on my local machine in order to build my blog.
 
 <p class="centered-image">
@@ -94,7 +99,3 @@ This my first experiment with Docker and I tried to focus on the concepts of Doc
 <p class="centered-image">
 	<img src="/assets/docker-blog-1/works-on-my-machine.png" alt="For real!">	
 </p>
-
-> #### tl;dr
-* Docker provides a way to have consistent environments with consistent behaviour
-* Docker hub has a lot of docker images with all sorts of OSses/languages/tools
