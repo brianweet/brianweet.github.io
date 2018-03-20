@@ -9,7 +9,7 @@ comments: true
 Lately a lot of people had [problems](https://world.episerver.com/forum/developer-forum/EPiServer-Search/Thread-Container/2017/7/issues-with-new-developer-indexes)  with the free Episerver Find developer indexes (or so called demo indexes). Intermittently these indexes stopped working, sometimes for a short period but occasionally they seemed to have died completely. One solution was to create a new index, which gets old after creating a couple each day, especially as they don't seem to work straight away.
 
 <p class="centered-image">
-	<img src="/assets/epi-find/wtf-grandma.png" alt="WTF grandma">
+	<img src="/assets/epi-find/wtf-grandma.jpg" alt="WTF grandma">
 </p>
 
 #### The problem
