@@ -1,5 +1,5 @@
 ---
 layout: blog_by_tag
-tag: touch-model
-permalink: /blog/tag/typing-accuracy/
+tag: strong-name-sign
+permalink: /blog/tag/strong-name-sign/
 ---
