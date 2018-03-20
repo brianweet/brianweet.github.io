@@ -1,5 +1,5 @@
 ---
 layout: blog_by_tag
-tag: epifind
+tag: episerver-find
 permalink: /blog/tag/episerver-find/
 ---

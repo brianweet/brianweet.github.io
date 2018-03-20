@@ -2,7 +2,7 @@
 layout: post
 title:  "Handling Episerver find exceptions"
 date:   2017-03-17 12:00:00
-tags: [episerver, epifind]
+tags: [episerver, episerver-find]
 comments: true
 ---
 
