@@ -102,7 +102,7 @@ public class StructureMapRegistry : Registry
 ```
 
 #### Digging a little deeper
-As it turns out the FindCommerceInitializationModule actually has an appSetting `episerver:findcommerce.IgnoreWebExceptionOnInitialization` which sounds like it should do what we want: ignore exceptions upon initialization. There is a try catch around the code that throws the exception, however it only catches WebExceptions whereas the current exception is a ServiceException. I am going to create a support ticket for this, as I think we should be able to use this appSetting to make sure we can start our application even if Find is a bit flaky. 
+As it turns out the FindCommerceInitializationModule actually has an appSetting `episerver:findcommerce.IgnoreWebExceptionOnInitialization` which sounds like it should do what we want: ignore exceptions upon initialization. **Unfortunately this does not work**. There is a try catch around the code that throws the exception, however it only catches WebExceptions whereas the current exception is a ServiceException. I am going to create a support ticket for this, as I think we should be able to use this appSetting to make sure we can start our application even if Find is a bit flaky. 
 
 #### Conclusion
 It is possible to start your app when Episerver Find isn't working properly. Be aware though, none of these workarounds are actual solutions and they might cause Find to behave unexpectedly.
