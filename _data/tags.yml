@@ -26,6 +26,8 @@ workfront:
   name: Workfront
 episerver:
   name: Episerver
+episerver-commerce:
+  name: Episerver Commerce
 episerver-find:
   name: Episerver find  
 propertylist:
