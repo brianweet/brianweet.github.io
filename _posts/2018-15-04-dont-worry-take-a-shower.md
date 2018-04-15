@@ -62,7 +62,7 @@ Here you can see me placing a TPH sensor in an air duct.
 As I just started with this whole home automation, I decided to go for a cheap and simple option: 433MHz communication. To be able to transmit messages I bought a [FS1000A 433 MHz transmitter](https://www.aliexpress.com/item/433M-TX-RX-Super-regenerative-Module-Wireless-Transmitting-Module-Alarm-Transmitter-Receiver/2024422377.html) for about 1 euro. On the other end I need a LED dimmer with 0-10V output which operates on 433 MHz. One example of such a device is the [ACM-LV10 Click-on-click-off LED dimmer](http://www.mediamarkt.nl/nl/product/_klikaanklikuit-acm-lv10-mini-led-controller-1359249.html) which set me back about 20 euro (in NL).
 
 <p class="centered-image">
-	<img src="/assets/domoticz-xiaomi/home-automation.svg" alt="Home automation diagram">
+	<img src="/assets/domoticz-xiaomi/home-automation.png" alt="Home automation diagram">
 </p>
 
 #### Wiring it all up
