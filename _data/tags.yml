@@ -44,3 +44,5 @@ docker:
   name: Docker
 jekyll:
   name: Jekyll
+home-automation:
+  name: Home Automation
