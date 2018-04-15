@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Don't worry, take a shower. Automating my mechanical ventilation"
-date:   2018-04-15 22:00:00
+date:   2018-04-15 08:00:00
 tags: [home-automation]
 comments: true
 ---
