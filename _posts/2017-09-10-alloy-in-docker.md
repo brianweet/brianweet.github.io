@@ -160,3 +160,11 @@ Now run ``docker-compose up -d`` to start the two containers to run alloy in Doc
 For this blog, I had two things I wanted to try out while using Docker.
 First I wanted to convert an existing Episerver demo project to use Docker, as it should result in a consistent behaviour of our project across environments. Next to being consistent, it will also give us flexibility regarding the software that is being used (SQL server version, enabled windows features). From a developer's perspective; using Docker can eliminate start-up problems when checking out a project for the first time. Configuration for the environments is explicit and we can move dependencies and requirements on the runtime environment to the container. 
 The second idea was to created 'self-sufficient' images, which are available on the Docker hub, in order to start and stop complete environments without any hassle. The images I've built therefore contain all data that is necessary to run the site and they are perfect for demo or automated testing environments. With one docker-compose file and by running one command you can now start up the alloy demo kit in a predefined state.
+
+**Edit - Apr 25, 2018**
+
+- [These credentials](https://github.com/episerver/AlloyDemoKit/wiki/Logins) can be used to log in to the CMS (by browsing to ``[ip-address]/episerver``)
+- I've updated the base images and created a v2 version; reducing the image size quite a lot. Note the updated [docker-compose.yml](https://github.com/brianweet/AlloyDemoKit/blob/docker/Run-using-pre-built-images/docker-compose.yml) file
+  - alloydemokit image has been reduced from 11.5GB to 8.18GB
+  - alloydemokit-db image has been reduced from 15GB to 10.8GB
+  - Thanks for the tip, Mark Harrison!
