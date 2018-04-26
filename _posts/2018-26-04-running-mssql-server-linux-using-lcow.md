@@ -22,24 +22,26 @@ Magic. It works on the first try! Expectations are rising, will it actually work
 </p>
 
 #### Running mssql-server-linux with LCOW
-The image I built based on [windows image for mssql](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) was quite big, 15GB when I was using it about 6 months ago and still 10.8GB after I updated the image to a newer version, yesterday [(see edit in this post)]({% post_url 2017-09-10-alloy-in-docker %}#summary). It's still huge compared to the base image for mssql-server-linux. Next to that it seems clear to me that the linux image is the way to go, just by looking at the updated frequency or the pull stats: 
+One of the images I built previously, based on [windows image for mssql](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/), was quite big: 15GB when I was using it about 6 months ago and still 10.8GB after I updated the image to a newer version, yesterday [(see edit in this post)]({% post_url 2017-09-10-alloy-in-docker %}#summary). That image still huge compared to the base image for mssql-server-linux. 
+
+It is also quite seems clear to me that the linux image is the way to go, just by looking at the update frequency or the pull stats:
 
 <p class="centered-image">
 	<img src="/assets/mssql-linux/different-images.png" alt="Mssql docker image stats">	
 </p>
 
-As the initial experiment went so smooth, I was excited and full of hope so I ran the command to start the linux container:
+As the initial experiment went so smooth, I was excited and full of hope when I ran the command to start the mssql linux container:
 ``docker run --platform linux --rm -ti -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 microsoft/mssql-server-linux``
 
 <p class="centered-image">
 	<img src="/assets/mssql-linux/need-memory.png" alt="Need memory">	
 </p>
 
-An error message saying: `sqlservr: This program requires a machine with at least 2000 megabytes of memory`.
-Ah ok so it does start but it needs more memory, I've seen this before, no problem. Just change the memory setting somewhere.. But where?!
+I received an error message saying: `sqlservr: This program requires a machine with at least 2000 megabytes of memory`.
+Ah ok... So it does start but it just needs more memory, I've seen this before, no problem. Just change the memory setting somewhere.. But where?!
 
-After searching in the app, searching online, trial and error I found out that it's not possible to change the default memory size set for the lcow container. Which is a real shame as it means I still can't do what I initially wanted to. As seen in this epic, the 'Memory and CPU settings' task is not [started yet](https://github.com/moby/moby/issues/33850).
-Reading through the referenced bug I found [a post](https://github.com/Microsoft/opengcs/issues/145#issuecomment-376439116) that mentioned that it should be possible to hardcode a value for the memorysize, recompile docker and make it work. I could not resist to give it a try.
+After searching in the app, searching online, doing some trial and error I found out that it's not possible to change the default memory size set for the lcow container. Which is a real shame as it means I still can't do what I wanted to, start the mssql linux container. As can be seen in this epic, the 'Memory and CPU settings' task is not [started yet](https://github.com/moby/moby/issues/33850).
+Reading through the referenced bug I found [a post](https://github.com/Microsoft/opengcs/issues/145#issuecomment-376439116) mentioning that it should be possible to hardcode a value for the memorysize, recompile docker and make it work. I could not resist to give it a try.
 
 #### Hardcoding MemoryMaximumInMB and recompiling docker
 Everyone knows how much fun it is to compile completely unknown stuff using a completely unknown stack. Slightly hesitant I started searching through the moby repository to figure out how to compile docker. I found [the dockerfile for windows](https://github.com/moby/moby/blob/master/Dockerfile.windows), with some great documentation inside:
@@ -64,7 +66,7 @@ I ended up with a custom compiled dockerd.exe, all that was left was to stop doc
 Yay, the memory error is gone! I probably did something wrong with the env variables though but that's not important, at least now sql is able to start and doesn't complain about memory restrictions anymore.
 
 #### Running Alloy demo with mssql-server-linux
-As with the previous Alloy example, I decided to create a db image which includes the database itself. The linux image does not have an `attach_dbs` params, so I decided to copy over the code from the [mssql-node-docker-demo-app](https://github.com/twright-msft/mssql-node-docker-demo-app/) and adapted it to [my needs](https://github.com/brianweet/AlloyDemoKit/tree/docker-linux/Build-sql-linux). After addng all of the data to the image, we're left with just 1.73GB, a huge difference from the previous 10.8GB/15GB!
+As with the [previous Alloy example]({% post_url 2017-09-10-alloy-in-docker %}), I decided to create a db image which includes the database itself. The linux image does not have an `attach_dbs` params, so I decided to copy over the code from the [mssql-node-docker-demo-app](https://github.com/twright-msft/mssql-node-docker-demo-app/) and adapted it to [my needs](https://github.com/brianweet/AlloyDemoKit/tree/docker-linux/Build-sql-linux). After adding all of the data to the image, we're left with just 1.73GB, a huge difference from the previous 10.8GB/15GB!
 
 <p class="centered-image">
 	<img src="/assets/mssql-linux/new-image-sizes.png" alt="New image sizes">
