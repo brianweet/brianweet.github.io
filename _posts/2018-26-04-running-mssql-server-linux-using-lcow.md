@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Running linux mssql on windows using LCOW"
+title:  "Running mssql-server-linux on windows using LCOW"
 date:   2018-04-26 01:00:00
 tags: [docker, episerver]
 comments: true
@@ -35,6 +35,7 @@ As the initial experiment went so smooth, I was excited and full of hope so I ra
 	<img src="/assets/mssql-linux/need-memory.png" alt="Need memory">	
 </p>
 
+An error message saying: `sqlservr: This program requires a machine with at least 2000 megabytes of memory`.
 Ah ok so it does start but it needs more memory, I've seen this before, no problem. Just change the memory setting somewhere.. But where?!
 
 After searching in the app, searching online, trial and error I found out that it's not possible to change the default memory size set for the lcow container. Which is a real shame as it means I still can't do what I initially wanted to. As seen in this epic, the 'Memory and CPU settings' task is not [started yet](https://github.com/moby/moby/issues/33850).
