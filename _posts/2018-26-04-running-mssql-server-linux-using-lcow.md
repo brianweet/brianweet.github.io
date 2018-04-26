@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Running mssql-server-linux on windows using LCOW"
-date:   2018-04-26 01:00:00
+date:   2018-04-26 00:01:00
 tags: [docker, episerver]
 comments: true
 ---
