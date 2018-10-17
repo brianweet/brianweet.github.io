@@ -8,7 +8,7 @@ comments: true
 
 A while ago I've created a system to be able to control my [home ventilation fan]({% post_url 2018-15-04-dont-worry-take-a-shower %}) by using a 433mhz remote dimmer. In this post I will be using [Mozilla IoT](https://iot.mozilla.org/) to create a 'Web Thing' out of that same home ventilation fan.
 
-The main reason is that I want to be able to control my 'Things' easily, as I'm a web developer I prefer to use common web technologies to control my Things. The [Web Thing API](https://iot.mozilla.org/wot/) initiative tries to standardize the definition of a Thing and it's properties, which already seems to support my simple requirements.
+The main reason is that I want to be able to control my 'Things' easily, and as I'm a web developer, I prefer to use common web technologies to control my Things. The [Web Thing API](https://iot.mozilla.org/wot/) initiative tries to standardize the definition of a Thing and it's properties, which already seems to support my simple requirements.
 
 For example; a Things Gateway UI with various Web Things.
 
@@ -18,7 +18,9 @@ For example; a Things Gateway UI with various Web Things.
 
 ## Installing the gateway
 
-I will need set-up two essential pieces... within my network. First I need a Things Gateway in order to monitor and control the Web Things in my network. Fortunately Mozilla provides instructions to [set-up such a gateway](https://iot.mozilla.org/gateway/). As I didn't want to reinstall my raspberry pi I've chosen to check out the code and set up the gateway myself, using the [installation instructions](https://github.com/mozilla-iot/gateway/blob/master/README.md).
+I will to need set-up two essential items to get this working... within my network. First I need a Things Gateway in order to monitor and control the Web Things in my network. Fortunately Mozilla provides instructions to [set-up such a gateway](https://iot.mozilla.org/gateway/). Since I didn't want to reinstall my raspberry pi I've chosen to check out the code and set up the gateway myself, using the [installation instructions](https://github.com/mozilla-iot/gateway/blob/master/README.md).
+
+This went surprisingly smooth; within no-time I had a Things Gateway set up with a public url provided by Mozilla. If you need any help with deciphering the installation instructions, feel free to send me a message. 
 
 If you need any help with this let me know, for me it went very smooth and within no-time I had a Things Gateway set up with a public url provided by Mozilla. Basically I followed the instructions, the scripts in the [gateway/image](https://github.com/mozilla-iot/gateway/tree/master/image) folder are very helpful as well.
 
@@ -28,13 +30,13 @@ If you need any help with this let me know, for me it went very smooth and withi
 
 ## Wrapping the fan with a Web Thing
 
-The second step is to create a Web Thing that exposes certain properties, in this case an on and off switch and a dim/level property. The fan has 16 different speed levels and can be turned off (basically means we end up with 17 levels, as 'off' is the lowest setting). Turning the fan off actually sets it to 'idle', it's mandatory for the fan to be running as that is needed to ventilate the house.
+The second step is to create a Web Thing that exposes certain properties, in this case an on and off switch and a dim/level property. The fan has 16 different speed levels and can be turned off (this means we end up with 17 levels, as 'off' is the lowest setting). Turning the fan off actually sets it to 'idle', it's mandatory for the fan to be running as that is needed to ventilate the house.
 
 In my previous blog post I've already created some scripts that allow me to control the fan. On my raspberry I have a script called `set-fan-level.sh`, calling this script will turn on the fan and set it to a certain speed. For example `./set-level-fan.sh 15` turns on the fan on full speed and `./set-level-fan.sh 0` turns on the fan at the speed level just above 'idle'.
 
 In order to create a web thing I've used the `webthing` npm package. I've created a Web Thing with two properties, an [OnOffProperty](https://iot.mozilla.org/schemas/#OnOffProperty) and a [LevelProperty](https://iot.mozilla.org/schemas/#LevelProperty).
 
-The LevelProperty determines the speed of the fan, if I change the speed of the fan I immediately turn on the fan as well.
+The LevelProperty determines the speed of the fan, and if I change the speed of the fan I immediately turn on the fan as well.
 
 The OnOffProperty reads the value of the LevelProperty and turns on the fan by calling the `set-fan-level.sh` script, or it turns the fan off by calling the `stop-fan.sh` script.
 
@@ -101,13 +103,13 @@ export class WebFanThing extends Thing {
 }
 ```
 
-As you can see the implementation is pretty straight forward. I've defined the fan as a OnOffSwitch, this allows me to switch it off easily from the Things Gateway UI. The LevelProperty can be set in the Web Thing 'details, and it ensures the OnOffProperty is set to true.
+Of: I tried to make the implementation as straight forward as possible. As you can see the implementation is pretty straight forward. I've defined the fan as a OnOffSwitch, this allows me to switch it off easily from the Things Gateway UI. The LevelProperty can be set in the Web Thing 'details', and it ensures the OnOffProperty is set to true.
 
 <p class="image">
 	<img src="/assets/mozilla-iot/webthing-setup-and-trigger.gif" alt="Web Things set up and trigger">
 </p>
 
-But how does the geteway find the Web Thing? Of course this is no magic, but fortunately the `webthing` package does most of the work for you. All you have to do is set up what kind of thing you have (single or multiple) and which port you want to use and you're done:
+But how does the gateway find the Web Thing? Of course this is no magic, but fortunately the `webthing` package does most of the work for you. All you have to do is set up what kind of thing you have (single or multiple) and which port you want to use and you're done:
 ```ts
 const { SingleThing, WebThingServer } = require('webthing');
 import { WebFanThing } from './webfan-thing';
