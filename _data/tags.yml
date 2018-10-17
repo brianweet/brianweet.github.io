@@ -46,3 +46,7 @@ jekyll:
   name: Jekyll
 home-automation:
   name: Home Automation
+iot:
+  name: IoT
+wot:
+  name: Web of Things
