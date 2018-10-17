@@ -129,4 +129,4 @@ For now I'm happy with the result. The next project will be to add some CO2 sens
 - [Domoticz](https://www.domoticz.com/wiki/Raspberry_Pi#The_.22easy.22_way)
 - [Domoticz humidity control](https://www.domoticz.com/wiki/Humidity_control)
 - [433Utils](https://github.com/ninjablocks/433Utils)
-- [Code for KaKu switch]((https://github.com/jeroenst/433mhzforrpi))
+- [Code for KaKu switch](https://github.com/jeroenst/433mhzforrpi)
