@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Web of things: a 'thing' wrapper around my home ventilation fan"
+title:  "Web of Things: turning my home ventilation into a Web Thing"
 date:   2018-10-17 12:00:00
 tags: [iot, wot, web-development, home-automation]
 comments: true
@@ -8,27 +8,42 @@ comments: true
 
 A while ago I've created a system to be able to control my [home ventilation fan]({% post_url 2018-15-04-dont-worry-take-a-shower %}) by using a 433mhz remote dimmer. In this post I will be using [Mozilla IoT](https://iot.mozilla.org/) to create a 'Web Thing' out of that same home ventilation fan.
 
-The main reason is that I want to be able to control my 'Things' easily, and as I'm a web developer, I prefer to use common web technologies to control my Things. The [Web Thing API](https://iot.mozilla.org/wot/) initiative tries to standardize the definition of a Thing and it's properties, which already seems to support my simple requirements.
-
-For example; a Things Gateway UI with various Web Things.
-
 <p class="centered-image">
-	<img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2018/10/Screen-Shot-2018-10-09-at-16.17.59.png" alt="Mozilla Things Gateway">
+    <img src="/assets/mozilla-iot/control-fan-mobile.jpg" alt="Search and control" height="300">
+</p>
+<p>
+    <strong>On the left, a raspberry pi with a 433mhz transmitter. On the right, the fan, the remote dimmer and a phone showing the Gateway Things UI (no worries, the wires go to a power adapter not my phone). </strong>
 </p>
 
-## Installing the gateway
+I want to be able to control my 'Things' easily and as I'm a web developer by day (and by night), I prefer to use the web technologies well known to me. The [Web Thing API](https://iot.mozilla.org/wot/) initiative tries to standardize the definition of a Web Thing and its properties, fortunately it already seems to support my (very basic) requirements!
 
-I will to need set-up two essential items to get this working... within my network. First I need a Things Gateway in order to monitor and control the Web Things in my network. Fortunately Mozilla provides instructions to [set-up such a gateway](https://iot.mozilla.org/gateway/). Since I didn't want to reinstall my raspberry pi I've chosen to check out the code and set up the gateway myself, using the [installation instructions](https://github.com/mozilla-iot/gateway/blob/master/README.md).
+<p class="centered-image">
+    <img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2018/10/Screen-Shot-2018-10-09-at-16.17.59.png" alt="Mozilla Things Gateway">
+</p>
+<p>
+    <strong>An example of the Things Gateway UI displaying various Web Things that can be monitored and controlled.</strong>
+</p>
 
-This went surprisingly smooth; within no-time I had a Things Gateway set up with a public url provided by Mozilla. If you need any help with deciphering the installation instructions, feel free to send me a message. 
 
-If you need any help with this let me know, for me it went very smooth and within no-time I had a Things Gateway set up with a public url provided by Mozilla. Basically I followed the instructions, the scripts in the [gateway/image](https://github.com/mozilla-iot/gateway/tree/master/image) folder are very helpful as well.
+## The plan
+I will to need set-up two essential items to get this Mozilla Web of Things running within my network. First I need a Things Gateway in order to monitor and control Web Things. Basically it's a web application, running on my raspberry pi, that can be used to scan the network for Web Things. Once configured it can be used to interact with the Web Things, provided that they have defined any interaction.
+
+Second, I need turn my fan into a Web Thing. This basically means that I will have to define the properties and behaviour of my fan. Afterwards it will be accessibly on my network by using web requests / web sockets. This, as well, will run on my raspberry pi as it is the only device I have with a 433mhz transmitter.
+
+## Step 1: Installing the gateway
+Fortunately Mozilla provides instructions to [set-up such a gateway](https://iot.mozilla.org/gateway/) on a raspberry pi. Since I didn't want to reinstall my raspberry pi I've decided to check out the code and set up the gateway myself, using the [installation instructions](https://github.com/mozilla-iot/gateway/blob/master/README.md).
+
+This went surprisingly smooth; within no-time I had a Things Gateway set up with a public URL provided by Mozilla. If you need any help with deciphering the installation instructions, feel free to send me a message.
+
+If you need any help with this let me know, within minutes I had a Things Gateway set up with a public URL provided by Mozilla. Basically I followed the instructions and used the scripts in the [gateway/image](https://github.com/mozilla-iot/gateway/tree/master/image) folder.
 
 <p class="centered-image">
 	<img src="/assets/mozilla-iot/empty-gateway.png" alt="Empty Things gateway">
 </p>
-
-## Wrapping the fan with a Web Thing
+<p>
+    <strong>An empty gateway, next up - create a Web Thing!</strong>
+</p>
+## Step 2: Turning the fan into a Web Thing
 
 The second step is to create a Web Thing that exposes certain properties, in this case an on and off switch and a dim/level property. The fan has 16 different speed levels and can be turned off (this means we end up with 17 levels, as 'off' is the lowest setting). Turning the fan off actually sets it to 'idle', it's mandatory for the fan to be running as that is needed to ventilate the house.
 
@@ -103,13 +118,16 @@ export class WebFanThing extends Thing {
 }
 ```
 
-Of: I tried to make the implementation as straight forward as possible. As you can see the implementation is pretty straight forward. I've defined the fan as a OnOffSwitch, this allows me to switch it off easily from the Things Gateway UI. The LevelProperty can be set in the Web Thing 'details', and it ensures the OnOffProperty is set to true.
+As you can see; the implementation is pretty straight forward. I've defined the fan as an OnOffSwitch, this allows me to switch it off easily from the Things Gateway UI. The LevelProperty can be set in the Web Thing 'details', and it ensures the OnOffProperty is set to true.
 
 <p class="image">
 	<img src="/assets/mozilla-iot/webthing-setup-and-trigger.gif" alt="Web Things set up and trigger">
 </p>
+<p>
+    <strong>Here I add the Fan Web Thing to the Gateway and control it by turning it on and changing the level. Web Thing (debug) logging on the right.</strong>
+</p>
 
-But how does the gateway find the Web Thing? Of course this is no magic, but fortunately the `webthing` package does most of the work for you. All you have to do is set up what kind of thing you have (single or multiple) and which port you want to use and you're done:
+But how does the gateway find the Web Thing? Of course this is no magic, you can use the `webthing` package to do most of the work for you. All you have to do is set up a WebThingServer with the kind of thing(s) you want to expose (single or multiple) and which port you want to use and you're done:
 ```ts
 const { SingleThing, WebThingServer } = require('webthing');
 import { WebFanThing } from './webfan-thing';
@@ -133,7 +151,7 @@ function runServer() {
 runServer();
 ```
 
-You can see the capabilities of your Web Thing by browsing to the url `http://raspberry-ip-address:8888`.
+As mentioned before, I'm running the code on my raspberry pi as well. It is the only device I have with a 433mhz transmitter connected to it and I need that to send messages to the dimmer connected to the fan. Once you run the code you will see the capabilities of your Web Thing by doing a GET request or browsing to the URL `http://your-webthing-ip-address:8888`.
 
 ```json
 {
@@ -178,27 +196,41 @@ You can see the capabilities of your Web Thing by browsing to the url `http://ra
     },
     {
       "rel": "alternate",
-      "href": "ws:\/\/192.168.0.210:8888"
+      "href": "ws:\/\/your-webthing-ip-address:8888"
     }
   ],
   "description": "Home ventilation fan"
 }
 ```
 
-You can use normal REST operations against the properties, for example a GET on `/properties/level` gives me `{"level":7}`. If I want to change the level I can do a simple PUT with the new level:
+You can interact with the Web Thing by using normal REST operations against it, for example a GET on `/properties/level` gives me `{"level":7}`. If I want to change the level I can do a simple PUT and pass the new level as a body param (fiddler snippet):
 
 ```
-PUT http://192.168.0.210:8888/properties/level HTTP/1.1
+PUT http://your-webthing-ip-address:8888/properties/level HTTP/1.1
 User-Agent: Fiddler
-Host: 192.168.0.210:8888
+Host: your-webthing-ip-address:8888
 Content-Type: application/json; charset=utf-8
 Content-Length: 12
 
 {"level":15}
 ```
 
+It returns a 200 OK and I hear the fan running on full speed!
+```
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Date: Wed, 17 Oct 2018 22:47:43 GMT
+....
+
+{"level":15}
+```
+
+<p class="centered-image">
+    <a href="https://www.flickr.com/photos/zestivales_lehavre/2679998843">
+        <img src="/assets/mozilla-iot/fan-success.jpg" alt="Fan success"/>
+    </a>
+</p>
+
 ## Conclusion
 
-I hope I have showed you how easy it is to wrap an existing (physical) device using the Web Things API. The first thing I did was to install the Things Gateway on my Raspberry pi in order to monitor and control the Web Things in my network.
-
-Then I've defined a Web Thing for my home ventilation fan and exposed it by using the `webthings` npm package. The Things Gateway is accessible from outside of my network and they provide a nice PWA that you can install (if you have android at least).
+I hope I was able to show you how easy it is to wrap an existing (physical) device using the Web Things API. All I had to do was install the Things Gateway on my Raspberry pi and define a Web Thing for my home ventilation fan. The Things Gateway is accessible from within and from outside of my network and it provides a clean and simple PWA to control your Web Things with.
