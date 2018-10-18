@@ -24,7 +24,6 @@ I want to be able to control my 'Things' easily and as I'm a web developer by da
     <strong>An example of the Things Gateway UI displaying various Web Things that can be monitored and controlled.</strong>
 </p>
 
-
 ## The plan
 I will to need set-up two essential items to get this Mozilla Web of Things running within my network. First I need a Things Gateway in order to monitor and control Web Things. Basically it's a web application, running on my raspberry pi, that can be used to scan the network for Web Things. Once configured it can be used to interact with the Web Things, provided that they have defined any interaction.
 
@@ -233,4 +232,4 @@ Date: Wed, 17 Oct 2018 22:47:43 GMT
 
 ## Conclusion
 
-I hope I was able to show you how easy it is to wrap an existing (physical) device using the Web Things API. All I had to do was install the Things Gateway on my Raspberry pi and define a Web Thing for my home ventilation fan. The Things Gateway is accessible from within and from outside of my network and it provides a clean and simple PWA to control your Web Things with.
+I hope I was able to show you how easy it is to wrap an existing (physical) device using the Web Things API. All I had to do was install the Things Gateway on my Raspberry pi and define a Web Thing for my home ventilation fan. The Things Gateway is accessible from within and from outside of my network and it provides a clean and simple PWA to control your Web Things with. If you're interested in the code, you can find it [here](https://github.com/brianweet/home-automation/tree/master/src/WebFan/src).
