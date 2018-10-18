@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Web of Things: turning my home ventilation into a Web Thing"
-date:   2018-10-17 12:00:00
+title:  "Mozilla Web of Things: turning my home ventilation into a Web Thing"
+date:   2018-10-18 20:00:00
 tags: [iot, wot, web-development, home-automation]
 comments: true
 ---
@@ -9,7 +9,7 @@ comments: true
 A while ago I've created a system to be able to control my [home ventilation fan]({% post_url 2018-15-04-dont-worry-take-a-shower %}) by using a 433mhz remote dimmer. In this post I will be using [Mozilla IoT](https://iot.mozilla.org/) to create a 'Web Thing' out of that same home ventilation fan.
 
 <p class="centered-image">
-    <img src="/assets/mozilla-iot/control-fan-mobile.jpg" alt="Search and control" height="300">
+    <img src="/assets/mozilla-iot/control-fan-mobile.jpg" alt="Search and control">
 </p>
 <p>
     <strong>On the left, a raspberry pi with a 433mhz transmitter. On the right, the fan, the remote dimmer and a phone showing the Gateway Things UI (no worries, the wires go to a power adapter not my phone). </strong>
