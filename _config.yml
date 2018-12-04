@@ -5,7 +5,7 @@ description: >
   Hi, my name is Brian Weeteling. 
   I am a passionate web developer, mainly working with .NET and Episerver. Also an IoT enthusiast.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://brianweet.github.io" # the base hostname & protocol for your site
+url: "https://www.brianweet.com" # the base hostname & protocol for your site
 github_username:  brianweet
 future: false
 
