@@ -5,6 +5,10 @@
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin/>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin/>
+  <link rel="preconnect" href="https://az416426.vo.msecnd.net" crossorigin/>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fontawesome-webfont.woff2?v=4.5.0" crossorigin/>
   <script type="text/javascript">
   if(window.location.hostname !== "localhost" && window.location.hostname !== "blog.localtest.me"){
       var loc = window.location.href+'';
