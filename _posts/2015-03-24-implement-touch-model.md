@@ -6,6 +6,9 @@ tags: [typing-accuracy, touch-model]
 comments: true
 ---
 
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 This is the second in a series of blog posts about typing accuracy.
 
 * [Part 1: Probable keyboard events]({% post_url 2015-03-11-probable-keyboard-events %})
