@@ -56,7 +56,7 @@ As there's something building up over time I thought it made sense to compare tw
 * Go to KUDU SCM and open the process explorer (for example https://\<my-example-site>.scm.azurewebsites.net/ProcessExplorer/)
 * Look for the w3wp.exe process **without** the `scm` label and copy the `pid`
 * Browse to https://\<my-example-site>.scm.azurewebsites.net/api/processes/<insert-pid-here>/dump?dumpType=2&format=zip
-  * This will generate a `full memory minidump of process with id. This will include matching sos.dll and mscordackws.dll in the zip package.`
+  * This will generate a `full memory minidump of process with id. This will include matching sos.dll and mscordackws.dll in the zip package.`[see docs](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession)
   * **NOTE:** This will make your site unresponsive for a couple of minutes
 * Wait for the download and unzip to a folder
 
