@@ -6,6 +6,7 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <meta name="theme-color" content="#424242">
+  <link rel="manifest" href="/manifest.json?v=1">
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin/>
   <script type="text/javascript">
   if(window.location.hostname !== "localhost" && window.location.hostname !== "blog.localtest.me"){
