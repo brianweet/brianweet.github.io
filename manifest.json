@@ -1,0 +1,21 @@
+{
+    "short_name": "Brianweet",
+    "name": "Brianweet's blog",
+    "icons": [
+      {
+        "src": "/assets/icons-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/assets/icons-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/?source=pwa",
+    "background_color": "#dedede",
+    "theme_color": "#424242",
+    "display": "standalone",
+    "scope": "/"
+  }
