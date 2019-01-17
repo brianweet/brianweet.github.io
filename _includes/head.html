@@ -5,9 +5,8 @@
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin/>
+  <meta name="theme-color" content="#424242">
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin/>
-  <link rel="preconnect" href="https://az416426.vo.msecnd.net" crossorigin/>
   <script type="text/javascript">
   if(window.location.hostname !== "localhost" && window.location.hostname !== "blog.localtest.me"){
       var loc = window.location.href+'';
@@ -18,8 +17,8 @@
   }
   </script>
   <script defer async src='https://www.google-analytics.com/analytics.js'></script>
-  <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
-  <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/jquery.magnific-popup.min.js"></script>
+  <script defer type="text/javascript" src="/assets/js/zepto.min.js"></script>
+  <script defer type="text/javascript" src="/assets/js/jquery.magnific-popup.min.js"></script>
   <script defer type="text/javascript" src="/assets/js/app.js"></script>
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
