@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "Validating property list items"
-date:   2019-01-27 16:00:00
+title:  "Validating PropertyList items with a custom class"
+date:   2019-01-31 08:00:00
 tags: [episerver, cms]
 comments: true
 ---
+
 This will be a very simple blog post but it might come in handy when you want to add (complex) logic to validate property list items with a custom class. Let's presume we have a page with a property list of type `CustomData`.
 
 ```csharp
@@ -85,3 +86,6 @@ public class MyPage : PageData
 }
 ```
 This way you can add custom logic to validate a single item, as we did in the example, or validate a list of items as a whole (just add logic to `ItemCustomDataValidationAttribute`).
+
+---
+**NOTE: this API is still internal, use at own risk. Only lists using primitive types are supported by Episerver**
