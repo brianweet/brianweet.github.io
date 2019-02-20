@@ -12,7 +12,7 @@ Last week I helped tracking down a performance issue in one of our projects. The
 	<img src="https://www.episerver.com/4ab550/globalassets/assets-website-structure/New-Folder9/technical-resources/technical-overview/multi-site.png" alt="Epi multi site">
 </p>
 
-Lately we noticed some performance regressions, which often happen as you start importing more and more content and the size of your solution grows. As we're hosting on Azure, we could see in the event log that the app pool sometimes recycled, usually due to memory constraints. Once we had representable size catalog, the performance issues were really apparent, especially on category pages. On these pages we rely on [Episerver Find](https://www.episerver.com/products/platform/episerver-find/) in order to search and filter through our catalog data, offering a list of products and various options for sorting and filtering. The catalog has a moderate size, totaling up to around 260k items in the index, a number Episerver Find can easily handle.
+Lately we noticed some performance regressions, which often happen as you start importing more and more content and the size of your solution grows. As we're hosting on Azure, we could see in the event log that the app pool sometimes recycles, usually due to memory constraints. Once we had a representable size catalog, the performance issues were really apparent, especially on category pages. On these pages we rely on [Episerver Find](https://www.episerver.com/products/platform/episerver-find/) in order to search and filter through our catalog data, offering a list of products and various options for sorting and filtering. The catalog has a moderate size, totaling up to around 260k items in the index, a number Episerver Find can easily handle.
 
 <p class="centered-image">
 	<img src="/assets/router-performance/0.category-page.png" alt="Example category page">
@@ -20,7 +20,7 @@ Lately we noticed some performance regressions, which often happen as you start 
 
 A [colleague](http://marisks.net/) noticed something weird: *"In smaller categories, it works pretty fast. In larger categories, it fails."*. The fact that category size affects performance to the point that it **fails** is very strange, it shouldn't even affect the performance of the page that much at all. Therefore he verified our find queries but to no avail *"I checked the code and it was loading only one page at a time. Not sure how category size affects it."*.
 
-I was asked if I could to dig into this problem and figure out what was happening. Using Application Insights [Live Metrics Stream](https://docs.microsoft.com/en-us/azure/azure-monitor/app/live-stream) I noticed we were doing a lot of database queries per second, with spikes up to 2~3k, without heavy user load. While profiling locally I noticed the same. The amount of queries on every page load and was very high.
+I was asked if I could to dig into this problem and figure out what was happening. Using Application Insights [Live Metrics Stream](https://docs.microsoft.com/en-us/azure/azure-monitor/app/live-stream) I noticed we were doing a lot of database queries per second, with spikes up to 2~3k, without heavy user load. While profiling locally I noticed the same. The amount of queries on every page load was very high.
 
 ### The problem and the plan
 
