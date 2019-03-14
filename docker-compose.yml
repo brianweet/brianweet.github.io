@@ -2,7 +2,9 @@ version: '3.1'
 services:
   site:
     command: jekyll s --drafts --future --force_polling --livereload --host blog.localtest.me
-    image: jekyll-livereload:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - .:/srv/jekyll
     ports:
