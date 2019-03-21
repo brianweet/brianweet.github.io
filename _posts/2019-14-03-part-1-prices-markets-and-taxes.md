@@ -122,6 +122,6 @@ Unfortunately the tax calculators have some limitations, if you only have a vari
 
 In this blog post we've looked at the three requirements for setting up tax calculation work using Episerver Commerce. 
 
-In the next blog post we will dive a bit deeper and discuss the difference between **importing prices including or excluding tax**.
+In the next blog post we will dive a bit deeper and discuss the difference between **using prices including or excluding tax**.
 
 We will also take a look at how you can run **both a B2B site and a B2C site** in the same solution.
