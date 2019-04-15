@@ -221,7 +221,7 @@ In this blog post we've added AI language model capabilities from GPT-2 to the T
 
 I had a lot of fun toying with the GPT-2 model, for some reason it is quite addictive to generate [weird](https://gist.github.com/brianweet/8effc2098957a59f942111464c4145fe) texts by playing around with different inputs.
 
-If you want to give it a try, I'm hosting it temporarily [here](https://c48871ed.ngrok.io). As the GPT-2 model is quite resource heavy you'll have to be patient and if it breaks, too bad, perhaps give it a try locally!
+If you want to give it a try, I'm hosting it temporarily [here](https://c48871ed.ngrok.io/EPiServer/CMS/?language=en#context=epi.cms.contentdata:///331&viewsetting=viewlanguage:///en). As the GPT-2 model is quite resource heavy you'll have to be patient and if it breaks, too bad, perhaps give it a try locally!
 
 ```
 user: human-content-editor
