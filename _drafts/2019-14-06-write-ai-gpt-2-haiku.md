@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Using AI to write haiku poems"
-date:   2019-06-13 20:00:00
-tags: [ai, art]
+date:   2019-06-14 00:00:00
+tags: [ai, art, gpt2]
 comments: true
 ---
 Every now and then, <s>usually after a bottle of wine</s>, my girlfriend asks me if I can explain her 'computer things'. She (B.A. in Art History) then <s>rambles on</s> talks with passion about how she believes that the IT-world could make a huge difference in the art world and the research that goes with it.
@@ -150,13 +150,17 @@ the smell of a moth
 on the stairs
 ```
 
-That looks promising! The grammar is sound and, for us, they look like real haiku poems. Able to draw a picture in your head, at times with a weird or unexpected results.
+That looks promising! The grammar is sound and, for us, they look like real haiku poems: able to draw a picture in your head, at times taking an unexpected turn.
+
+<a href="https://www.oldpondcomics.com/master.html" target="_blank">
+  <img src="/assets/gpt-2-haiku/op24hour15.gif" alt="an unexpected turn" />
+</a>
 
 #### run2 - full dataset (cleaned)
 
 Combining all datasets we found, six in total (95k haiku, at least 80% twaiku), gave us completely different results. The structure looks like a haiku, but the writing style and topics are... peculiar? We're no experts, but twaiku, a haiku posted on Twitter, might be of a different quality.
 
-Cleaning the dataset was very rough, removing 45K haiku, basically removing complete outliers with long sentences or with the wrong number of lines.
+Cleaning the dataset was very rough, removing 45K haiku, basically deleting complete outliers with long sentences or with the wrong number of lines.
 
 Take a look at the haiku below and spot the difference:
 
@@ -290,9 +294,9 @@ in the rain
 
 We thought these results were comparable to the results with the 'high quality' haikuzao dataset. Albeit with more variation, and less moths.
 
-<p class="centered image">
+<a href="http://www.oldpondcomics.com/onebreahpoetry.html" target="_blank">
   <img src="/assets/gpt-2-haiku/ophaikubreath.gif" alt="One breath poetry - haiku">
-</p>
+</a>
 
 ### Things left
 
@@ -300,9 +304,9 @@ For us the most fun was reading all of the things the model generated. Again it 
 
 All in all, we had a good laugh looking through the generated haiku, and who knows what will come up after the next <s>bottle of wine</s> interesting chat with my girlfriend.
 
-<p class="centered image">
+<a href="http://www.oldpondcomics.com/575haiku.html" target="_blank">
   <img src="/assets/gpt-2-haiku/ophaiku575.gif" alt="Perfect measurements">
-</p>
+</a>
 
 #### Not for the faint of heart
 
@@ -330,7 +334,7 @@ killing time
 in the cafeteria
 ```
 
-P.S. this blog post was written by both of us, no significant others were harmed in the making of this post
+P.S. this blog post was written by both of us, no significant others were harmed in the making of this post.
 
 The three runs, with datasets and full output, can be found on [github](https://github.com/brianweet/gpt-2-haiku).
 

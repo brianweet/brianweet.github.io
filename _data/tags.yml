@@ -56,3 +56,5 @@ ai:
   name: Artificial Intelligence
 art:
   name: artsy stuff
+gpt2:
+  name: GPT-2
