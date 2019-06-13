@@ -54,3 +54,5 @@ azure:
   name: Azure
 ai:
   name: Artificial Intelligence
+art:
+  name: artsy stuff
