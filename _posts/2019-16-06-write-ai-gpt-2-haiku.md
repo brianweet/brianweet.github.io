@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Using AI to write haiku poems"
-date:   2019-06-14 00:00:00
-tags: [ai, art, gpt2]
+date:   2019-06-16 18:00:00
+tags: [ai, gpt2, art]
 comments: true
 ---
 Every now and then, <s>usually after a bottle of wine</s>, my girlfriend asks me if I can explain her 'computer things'. She (B.A. in Art History) then <s>rambles on</s> talks with passion about how she believes that the IT-world could make a huge difference in the art world and the research that goes with it.
@@ -30,7 +30,7 @@ For those who don't know what a haiku is: it is a Japanese form of poetry. For s
 - In English, this division between two parts can be shown by a colon or a dash.
 
 <a href="https://www.oldpondcomics.com/student.html" target="_blank">
-  <img src="/assets/gpt-2-haiku/opchestnuts.gif" alt="old pond chestnuts" />
+  <img src="/assets/gpt-2-haiku/opchestnuts.gif" alt="old pond chestnuts" class="no-zoom" />
 </a>
 
 #### Haiku examples by [Literary Devices](https://literarydevices.net/haiku/)
@@ -69,7 +69,9 @@ At the time of writing my [previous GPT-2 blog post]({% post_url 2019-15-04-intr
 As the idea is to let the GPT-2 model 'write' haiku, I searched for a proper haiku dataset and ended up with this repo by [docmarionum1](https://github.com/docmarionum1/haikurnn/) which contains a dataset of about 140k haiku (well... sort of, more about this later).
 In order to train the model I've used [this Jupyter notebook by ak9250](https://github.com/ak9250/gpt-2-colab/blob/master/GPT_2.ipynb) and updated it a bit to load my own dataset. If you want, you can try it as well. Here's the notebook I used to train our latest model with a dataset of about 15k haiku:
 
-<a href="https://colab.research.google.com/github/brianweet/gpt-2-haiku/blob/master/train/GPT_2.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/brianweet/gpt-2-haiku/blob/master/train/GPT_2_Haiku.ipynb" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="no-zoom"/>
+</a>
 
 As the dataset is relatively small, training didn't take too long. After just a couple of minutes we started to see some promising results already.
 
@@ -153,14 +155,14 @@ on the stairs
 That looks promising! The grammar is sound and, for us, they look like real haiku poems: able to draw a picture in your head, at times taking an unexpected turn.
 
 <a href="https://www.oldpondcomics.com/master.html" target="_blank">
-  <img src="/assets/gpt-2-haiku/op24hour15.gif" alt="an unexpected turn" />
+  <img src="/assets/gpt-2-haiku/op24hour15.gif" alt="an unexpected turn" class="no-zoom"/>
 </a>
 
 #### run2 - full dataset (cleaned)
 
 Combining all datasets we found, six in total (95k haiku, at least 80% twaiku), gave us completely different results. The structure looks like a haiku, but the writing style and topics are... peculiar? We're no experts, but twaiku, a haiku posted on Twitter, might be of a different quality.
 
-Cleaning the dataset was very rough, removing 45K haiku, basically deleting complete outliers with long sentences or with the wrong number of lines.
+Cleaning the dataset was done in a very rough manner, removing 45K haiku, basically deleting complete outliers with long sentences or with the wrong number of lines.
 
 Take a look at the haiku below and spot the difference:
 
@@ -295,7 +297,7 @@ in the rain
 We thought these results were comparable to the results with the 'high quality' haikuzao dataset. Albeit with more variation, and less moths.
 
 <a href="http://www.oldpondcomics.com/onebreahpoetry.html" target="_blank">
-  <img src="/assets/gpt-2-haiku/ophaikubreath.gif" alt="One breath poetry - haiku">
+  <img src="/assets/gpt-2-haiku/ophaikubreath.gif" alt="One breath poetry - haiku" class="no-zoom">
 </a>
 
 ### Things left
@@ -305,7 +307,7 @@ For us the most fun was reading all of the things the model generated. Again it 
 All in all, we had a good laugh looking through the generated haiku, and who knows what will come up after the next <s>bottle of wine</s> interesting chat with my girlfriend.
 
 <a href="http://www.oldpondcomics.com/575haiku.html" target="_blank">
-  <img src="/assets/gpt-2-haiku/ophaiku575.gif" alt="Perfect measurements">
+  <img src="/assets/gpt-2-haiku/ophaiku575.gif" alt="Perfect measurements" class="no-zoom">
 </a>
 
 #### Not for the faint of heart

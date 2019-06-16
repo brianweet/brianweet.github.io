@@ -17,7 +17,7 @@
         })
       });
 
-      var imageElements = $('img:not(.galleryItemThumb)');
+      var imageElements = $('img:not(.galleryItemThumb):not(.no-zoom)');
       if (!imageElements.length){
         return;
       }
