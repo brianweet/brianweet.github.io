@@ -18,7 +18,7 @@ In this blog I'll be taking another look at [Docker](https://www.docker.com/). T
 </p>
 
 ### Running alloy in a container
-To start off, I've installed [VS tools for Docker](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.VisualStudioToolsforDocker-Preview) as this provides the option to add Docker support from Visual Studio. When you click on "Add - Docker Support", a couple of files will be added for you. Let's take a look to see what these files are for: 
+To start off, I've installed Container development tools (using the Visual Studio installer) as this provides the option to add Docker support from Visual Studio. When you click on "Add - Docker Support", a couple of files will be added for you. Let's take a look to see what these files are for: 
 
 * There's a Dockerfile for our web project (in the alloydemo folder)
   * This is a description of how to build an image for our web project. After building we will have an image called alloydemokit. The Dockerfile has a reference to a Microsoft image which includes IIS and adds remote debugging support to that image
