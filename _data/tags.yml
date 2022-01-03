@@ -58,3 +58,7 @@ art:
   name: artsy stuff
 gpt2:
   name: GPT-2
+commerce:
+  name: Commerce
+optimizely:
+  name: Optimizely
