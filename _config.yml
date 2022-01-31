@@ -8,6 +8,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://www.brianweet.com" # the base hostname & protocol for your site
 github_username:  brianweet
 future: false
+env: production
 
 # Build settings
 markdown: kramdown
