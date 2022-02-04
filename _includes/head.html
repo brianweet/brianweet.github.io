@@ -34,8 +34,3 @@
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
   <style type="text/css">{% capture inline_css %}{% include inline-styles.scss %}{% endcapture %}{{ inline_css | scssify }}</style>
 </head>
-
-{% if site.env == "production" %}
-<!-- Testing Optimizely Experimentation -->
-<script src="https://cdn.optimizely.com/js/21143200537.js"></script>
-{% endif %}
