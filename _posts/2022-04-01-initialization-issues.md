@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tracking down initialization issues in Optimizely"
+title:  "Tracking down initialization issues in an Optimizely project"
 date:   2022-01-04 09:00:00
 tags: [optimizely, cms, commerce]
 comments: true
