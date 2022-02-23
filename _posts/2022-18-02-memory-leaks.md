@@ -61,6 +61,6 @@ The key takeaways are:
 
 **Tip 1**: Try to fix all exceptions that are thrown during indexing, it will speed up indexing and prevent unneccesary memory usage.
 
-**Tip 2**: Be sure to put a size limit on media data attachments, either using the provided code by [Optimizely]((https://world.optimizely.com/documentation/developer-guides/search-navigation/NET-Client-API/Indexing/)) or by storing the size upon saving the file and filtering out all large attachments
+**Tip 2**: Be sure to put a size limit on media data attachments, either using the provided code by [Optimizely]((https://world.optimizely.com/documentation/developer-guides/search-navigation/NET-Client-API/Indexing/) or by storing the size upon saving the file and filtering out all large attachments
 
 **Tip 3**: In general: Think about your exceptions, what do you want to do with them? If you keep them alive try to extract what you need instead of storing everything
