@@ -5,9 +5,9 @@ date:   2019-06-16 18:00:00
 tags: [ai, gpt2, art]
 comments: true
 ---
-Every now and then, <s>usually after a bottle of wine</s>, my girlfriend asks me if I can explain her 'computer things'. She (B.A. in Art History) then <s>rambles on</s> talks with passion about how she believes that the IT-world could make a huge difference in the art world and the research that goes with it.
+Every now and then, my girlfriend asks me if I can explain her 'computer things'. She (B.A. in Art History) then talks with passion about how she believes that the IT-world could make a huge difference in the art world and the research that goes with it.
 
-When I was working on my previous blog post about the language model from [OpenAI called GPT-2](https://openai.com/blog/better-language-models/), I got the 'computer things'-question again. So I <s>tried to explain</s> explained her how the language model works, which made her wonder if it was possible to combine the 'GTP-thing' and something 'artsy'. She talked about recognizable and unrecognizable patterns and how in art, too, were patterns to be found. Although I always listen to what she has to say, I cannot reproduce any of the two hundred examples she mentioned.
+When I was working on my previous blog post about the language model from [OpenAI called GPT-2](https://openai.com/blog/better-language-models/), I got the 'computer things'-question again. So I tried to explain how the language model works, which made her wonder if it was possible to combine the 'GTP-thing' and something 'artsy'. She talked about recognizable and unrecognizable patterns and how in art, too, were patterns to be found.
 
 So here we are: in this blog post we'll try to write haiku poems using the GPT-2 language model.
 
